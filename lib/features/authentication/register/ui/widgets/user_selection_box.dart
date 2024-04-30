@@ -13,7 +13,6 @@ class UserSelectionBox extends StatefulWidget {
   State<UserSelectionBox> createState() => _UserSelectionBoxState();
 }
 
-final List<String> options = ["متلعثم", "ذو صلة"];
 
 class _UserSelectionBoxState extends State<UserSelectionBox> {
   String? currentOption;

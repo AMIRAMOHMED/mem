@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:mem/core/extension/num_extension.dart';
 import 'package:mem/core/resources/validation.dart';
 import 'package:mem/core/themes/app_style.dart';
@@ -25,10 +24,10 @@ late TextEditingController emailController;
 late TextEditingController firstNameController;
 late TextEditingController lastNameController;
 late TextEditingController passwordController;
-String selectedUserOption = "";
-XFile pickImage = XFile("");
+
 
 TextEditingController confirmPasswordController = TextEditingController();
+String selectedUserOption = '';
 
 class _RegisterScreenState extends State<RegisterScreen> {
   bool isShowPassword = true;
@@ -67,10 +66,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     SizedBox(
                       height: 120.h,
                       width: 130.w,
-                      child: PickImageWidget(
-                        saveFile: (pickImage) {
-                          pickImage = pickImage;
-                        },
+                      child: const PickImageWidget(
                       ),
                     ),
                   ],
@@ -200,7 +196,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     if (formKey.currentState!.validate()) {
                       context
                           .read<RegisterCubit>()
-                          .emitRegisterState( selectedUserOption,pickImage);
+                          .emitRegisterState( selectedUserOption);
                     }
                   },
                 ),

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -15,17 +17,19 @@ class RegisterCubit extends Cubit<RegisterState> {
   TextEditingController firstNameController = TextEditingController();
   TextEditingController lastNameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-
-  void emitRegisterState(String selectedUserOption, XFile pickedImage) async {
-    emit(const RegisterState.loading());
-
+  XFile pickImage = XFile("");
+void updatePickImage(XFile image) {
+  pickImage = image;
+}
+  void emitRegisterState(String selectedUserOption) async {
     FormData picFormData;
-    
   
-      picFormData = FormData.fromMap({
-        "profilePictureUrl:": await MultipartFile.fromFile(pickedImage.path, filename: "profile.jpg"),
-      });
-    
+    picFormData = FormData.fromMap({
+      "profilePictureUrl:": await MultipartFile.fromFile(pickImage.path,
+          filename: "profile.jpg"),
+    });
+    log(picFormData.toString());
+    emit(const RegisterState.loading());
 
     final response = await _registerRepo.register(
       RegisterRequestBody(
