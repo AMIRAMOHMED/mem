@@ -4,6 +4,7 @@ import 'package:mem/core/themes/app_pallete.dart';
 import 'package:mem/core/themes/app_style.dart';
 import 'package:mem/core/widgets/head_container.dart';
 import 'package:mem/features/group%20chat/presentation/widgets/build_chat.dart';
+import 'package:mem/features/group%20chat/presentation/widgets/chat_buble.dart';
 
 class GroupChatScreen extends StatelessWidget {
   const GroupChatScreen({super.key});
@@ -23,10 +24,14 @@ class GroupChatScreen extends StatelessWidget {
               color: AppPallete.mintGreen,
               isINfoIcon: true,
             ),
-          ),
-          const Expanded(
-            child: BuildChatList(),
-          ),
+          ),Expanded(
+      child: ListView.builder(
+        itemBuilder: (context, index) {
+          return const ChatBuble();
+        },
+      ),
+    ),
+         
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: TextFormField(

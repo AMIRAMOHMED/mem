@@ -10,7 +10,7 @@ class RegisterRequestBody {
   String password;
   String type;
   String username;
-  String ?profilePictureUrl="null";
+  String profilePictureUrl;
   RegisterRequestBody({
     required this.email,
     required this.firstName,
@@ -18,7 +18,7 @@ class RegisterRequestBody {
     required this.password,
     required this.type,
     required this.username,
-     this.profilePictureUrl,
+     required this.profilePictureUrl,
   });
     Map<String, dynamic> toJson() => _$RegisterRequestBodyToJson(this);
 

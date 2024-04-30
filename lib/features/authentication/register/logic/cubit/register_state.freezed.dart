@@ -20,6 +20,7 @@ mixin _$RegisterState<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(T data) sucessPickedImage,
     required TResult Function(T data) success,
     required TResult Function(String error) error,
   }) =>
@@ -28,6 +29,7 @@ mixin _$RegisterState<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function(T data)? sucessPickedImage,
     TResult? Function(T data)? success,
     TResult? Function(String error)? error,
   }) =>
@@ -36,6 +38,7 @@ mixin _$RegisterState<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(T data)? sucessPickedImage,
     TResult Function(T data)? success,
     TResult Function(String error)? error,
     required TResult orElse(),
@@ -45,6 +48,7 @@ mixin _$RegisterState<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(Loading<T> value) loading,
+    required TResult Function(SuccessPickedImage<T> value) sucessPickedImage,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
   }) =>
@@ -53,6 +57,7 @@ mixin _$RegisterState<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(Loading<T> value)? loading,
+    TResult? Function(SuccessPickedImage<T> value)? sucessPickedImage,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
   }) =>
@@ -61,6 +66,7 @@ mixin _$RegisterState<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
     TResult Function(Loading<T> value)? loading,
+    TResult Function(SuccessPickedImage<T> value)? sucessPickedImage,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
     required TResult orElse(),
@@ -126,6 +132,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(T data) sucessPickedImage,
     required TResult Function(T data) success,
     required TResult Function(String error) error,
   }) {
@@ -137,6 +144,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function(T data)? sucessPickedImage,
     TResult? Function(T data)? success,
     TResult? Function(String error)? error,
   }) {
@@ -148,6 +156,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(T data)? sucessPickedImage,
     TResult Function(T data)? success,
     TResult Function(String error)? error,
     required TResult orElse(),
@@ -163,6 +172,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(Loading<T> value) loading,
+    required TResult Function(SuccessPickedImage<T> value) sucessPickedImage,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
   }) {
@@ -174,6 +184,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(Loading<T> value)? loading,
+    TResult? Function(SuccessPickedImage<T> value)? sucessPickedImage,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
   }) {
@@ -185,6 +196,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
     TResult Function(Loading<T> value)? loading,
+    TResult Function(SuccessPickedImage<T> value)? sucessPickedImage,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
     required TResult orElse(),
@@ -240,6 +252,7 @@ class _$LoadingImpl<T> implements Loading<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(T data) sucessPickedImage,
     required TResult Function(T data) success,
     required TResult Function(String error) error,
   }) {
@@ -251,6 +264,7 @@ class _$LoadingImpl<T> implements Loading<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function(T data)? sucessPickedImage,
     TResult? Function(T data)? success,
     TResult? Function(String error)? error,
   }) {
@@ -262,6 +276,7 @@ class _$LoadingImpl<T> implements Loading<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(T data)? sucessPickedImage,
     TResult Function(T data)? success,
     TResult Function(String error)? error,
     required TResult orElse(),
@@ -277,6 +292,7 @@ class _$LoadingImpl<T> implements Loading<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(Loading<T> value) loading,
+    required TResult Function(SuccessPickedImage<T> value) sucessPickedImage,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
   }) {
@@ -288,6 +304,7 @@ class _$LoadingImpl<T> implements Loading<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(Loading<T> value)? loading,
+    TResult? Function(SuccessPickedImage<T> value)? sucessPickedImage,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
   }) {
@@ -299,6 +316,7 @@ class _$LoadingImpl<T> implements Loading<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
     TResult Function(Loading<T> value)? loading,
+    TResult Function(SuccessPickedImage<T> value)? sucessPickedImage,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
     required TResult orElse(),
@@ -312,6 +330,159 @@ class _$LoadingImpl<T> implements Loading<T> {
 
 abstract class Loading<T> implements RegisterState<T> {
   const factory Loading() = _$LoadingImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$SuccessPickedImageImplCopyWith<T, $Res> {
+  factory _$$SuccessPickedImageImplCopyWith(_$SuccessPickedImageImpl<T> value,
+          $Res Function(_$SuccessPickedImageImpl<T>) then) =
+      __$$SuccessPickedImageImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({T data});
+}
+
+/// @nodoc
+class __$$SuccessPickedImageImplCopyWithImpl<T, $Res>
+    extends _$RegisterStateCopyWithImpl<T, $Res, _$SuccessPickedImageImpl<T>>
+    implements _$$SuccessPickedImageImplCopyWith<T, $Res> {
+  __$$SuccessPickedImageImplCopyWithImpl(_$SuccessPickedImageImpl<T> _value,
+      $Res Function(_$SuccessPickedImageImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = freezed,
+  }) {
+    return _then(_$SuccessPickedImageImpl<T>(
+      freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SuccessPickedImageImpl<T> implements SuccessPickedImage<T> {
+  const _$SuccessPickedImageImpl(this.data);
+
+  @override
+  final T data;
+
+  @override
+  String toString() {
+    return 'RegisterState<$T>.sucessPickedImage(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SuccessPickedImageImpl<T> &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SuccessPickedImageImplCopyWith<T, _$SuccessPickedImageImpl<T>>
+      get copyWith => __$$SuccessPickedImageImplCopyWithImpl<T,
+          _$SuccessPickedImageImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(T data) sucessPickedImage,
+    required TResult Function(T data) success,
+    required TResult Function(String error) error,
+  }) {
+    return sucessPickedImage(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(T data)? sucessPickedImage,
+    TResult? Function(T data)? success,
+    TResult? Function(String error)? error,
+  }) {
+    return sucessPickedImage?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(T data)? sucessPickedImage,
+    TResult Function(T data)? success,
+    TResult Function(String error)? error,
+    required TResult orElse(),
+  }) {
+    if (sucessPickedImage != null) {
+      return sucessPickedImage(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(SuccessPickedImage<T> value) sucessPickedImage,
+    required TResult Function(Success<T> value) success,
+    required TResult Function(Error<T> value) error,
+  }) {
+    return sucessPickedImage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(SuccessPickedImage<T> value)? sucessPickedImage,
+    TResult? Function(Success<T> value)? success,
+    TResult? Function(Error<T> value)? error,
+  }) {
+    return sucessPickedImage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(SuccessPickedImage<T> value)? sucessPickedImage,
+    TResult Function(Success<T> value)? success,
+    TResult Function(Error<T> value)? error,
+    required TResult orElse(),
+  }) {
+    if (sucessPickedImage != null) {
+      return sucessPickedImage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SuccessPickedImage<T> implements RegisterState<T> {
+  const factory SuccessPickedImage(final T data) = _$SuccessPickedImageImpl<T>;
+
+  T get data;
+  @JsonKey(ignore: true)
+  _$$SuccessPickedImageImplCopyWith<T, _$SuccessPickedImageImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -381,6 +552,7 @@ class _$SuccessImpl<T> implements Success<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(T data) sucessPickedImage,
     required TResult Function(T data) success,
     required TResult Function(String error) error,
   }) {
@@ -392,6 +564,7 @@ class _$SuccessImpl<T> implements Success<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function(T data)? sucessPickedImage,
     TResult? Function(T data)? success,
     TResult? Function(String error)? error,
   }) {
@@ -403,6 +576,7 @@ class _$SuccessImpl<T> implements Success<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(T data)? sucessPickedImage,
     TResult Function(T data)? success,
     TResult Function(String error)? error,
     required TResult orElse(),
@@ -418,6 +592,7 @@ class _$SuccessImpl<T> implements Success<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(Loading<T> value) loading,
+    required TResult Function(SuccessPickedImage<T> value) sucessPickedImage,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
   }) {
@@ -429,6 +604,7 @@ class _$SuccessImpl<T> implements Success<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(Loading<T> value)? loading,
+    TResult? Function(SuccessPickedImage<T> value)? sucessPickedImage,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
   }) {
@@ -440,6 +616,7 @@ class _$SuccessImpl<T> implements Success<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
     TResult Function(Loading<T> value)? loading,
+    TResult Function(SuccessPickedImage<T> value)? sucessPickedImage,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
     required TResult orElse(),
@@ -526,6 +703,7 @@ class _$ErrorImpl<T> implements Error<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(T data) sucessPickedImage,
     required TResult Function(T data) success,
     required TResult Function(String error) error,
   }) {
@@ -537,6 +715,7 @@ class _$ErrorImpl<T> implements Error<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function(T data)? sucessPickedImage,
     TResult? Function(T data)? success,
     TResult? Function(String error)? error,
   }) {
@@ -548,6 +727,7 @@ class _$ErrorImpl<T> implements Error<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(T data)? sucessPickedImage,
     TResult Function(T data)? success,
     TResult Function(String error)? error,
     required TResult orElse(),
@@ -563,6 +743,7 @@ class _$ErrorImpl<T> implements Error<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(Loading<T> value) loading,
+    required TResult Function(SuccessPickedImage<T> value) sucessPickedImage,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
   }) {
@@ -574,6 +755,7 @@ class _$ErrorImpl<T> implements Error<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(Loading<T> value)? loading,
+    TResult? Function(SuccessPickedImage<T> value)? sucessPickedImage,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
   }) {
@@ -585,6 +767,7 @@ class _$ErrorImpl<T> implements Error<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
     TResult Function(Loading<T> value)? loading,
+    TResult Function(SuccessPickedImage<T> value)? sucessPickedImage,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
     required TResult orElse(),
