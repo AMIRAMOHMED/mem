@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "658518901335",
+    "project_id": "nmemapp",
+    "storage_bucket": "nmemapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:658518901335:android:1f658f0b0ed3f923215912",
+        "android_client_info": {
+          "package_name": "com.example.mem"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBF_iq6tQd-1tsLa40ejvnadqy8P9QuLIE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
