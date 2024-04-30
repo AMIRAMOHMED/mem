@@ -76,7 +76,6 @@ class RegisterCubit extends Cubit<RegisterState> {
         password: passwordController.text,
         type: selectedUserOption,
         username: "${firstNameController.text}${lastNameController.text}",
-        profilePictureUrl:pickImage!.path,
       ),
     );
 

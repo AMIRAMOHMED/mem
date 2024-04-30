@@ -29,7 +29,7 @@ class RegisterBlocListener extends StatelessWidget {
           },
           success: (registerResponse) {
             context.pop();
-context.pushReplacementNamed(loginScreen);
+            context.pushReplacementNamed(loginScreen);
           },
           error: (error) {
             setupErrorState(context, error);
