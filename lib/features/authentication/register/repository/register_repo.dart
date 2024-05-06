@@ -21,5 +21,7 @@ class RegisterReop {
     } catch (error) {
       return ApiResult<RegisterData>.failure(ErrorHandler.handle(error));
     }
+
+    
   }
 }

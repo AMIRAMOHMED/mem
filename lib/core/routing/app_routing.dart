@@ -6,17 +6,17 @@ import 'package:mem/features/authentication/login/logic/cubit/login_cubit.dart';
 import 'package:mem/features/authentication/register/logic/cubit/register_cubit.dart';
 import 'package:mem/features/authentication/login/ui/login_screen.dart';
 import 'package:mem/features/authentication/register/ui/screens/register_screen.dart';
-import 'package:mem/features/collaboration/presentation/screens/collaboration_screen.dart';
+import 'package:mem/features/meeting/data/models/meetings_respons_body.dart';
+import 'package:mem/features/meeting/presentation/screens/collaboration_screen.dart';
 import 'package:mem/features/exercises/presentation/screens/exercises_screen.dart';
 import 'package:mem/features/group%20chat/presentation/screens/group_chat_screen.dart';
 import 'package:mem/features/group%20chat/presentation/screens/information_group_screen.dart';
-import 'package:mem/features/home/presentation/Screens/home_screen.dart';
+import 'package:mem/features/home/ui/Screens/home_screen.dart';
 
 class AppRoutes {
   Route? onGenerateRoute(RouteSettings settings) {
     final args = settings.arguments;
     switch (settings.name) {
-     
       case homeScreen:
         return MaterialPageRoute(
           builder: (_) => const HomeScreen(),
@@ -37,7 +37,9 @@ class AppRoutes {
         );
       case collaborationScreen:
         return MaterialPageRoute(
-          builder: (_) => const CollaborationScreen(),
+          builder: (_) => CollaborationScreen(
+            meetingResponsBody: args as MeetingResponsBody,
+          ),
         );
       case groupChatScreen:
         return MaterialPageRoute(
@@ -50,10 +52,9 @@ class AppRoutes {
       case informationGroupScreen:
         return MaterialPageRoute(
           builder: (_) => const InformationGroupScreen(),
-    
         );
-    
-    default:
+
+      default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(
             body: Center(
@@ -62,6 +63,5 @@ class AppRoutes {
           ),
         );
     }
-
   }
 }

@@ -1,10 +1,11 @@
 class ApiConstants {
-
   static const String apiBaseURL = 'https://mem.hossamohsen.me/';
   static const String registerEndpoint = 'auth/signup/password';
   static const String loginEndpoint = 'auth/signin/password';
+  static const String meetingEndpoint = "meetings/all";
+  static const String setFireBaseId = "user/firebase-id";
+  static const String putUserPic = "user/changepic";
 }
-
 
 class ApiErrors {
   static const String badRequestError = "badRequestError";

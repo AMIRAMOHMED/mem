@@ -9,4 +9,5 @@ class Assets {
    static const profileLogo ="assets/home/profile_logo.png";
   static const sendIcon = "assets/chat/Sent_icon.png";
 static const memLogPicture =  "assets/home/memlogpic.png";
+static const splashVector="assets/splash/Vector 1.jpg";
 }

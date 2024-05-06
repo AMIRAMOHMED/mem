@@ -44,6 +44,7 @@ dependencies:
   get_it: ^7.6.8
   google_fonts: ^6.2.1
   image_picker: ^1.1.0
+  intl: ^0.19.0
   json_annotation: ^4.8.1
   json_serializable: ^6.7.1
   lottie: ^3.1.0
@@ -53,6 +54,7 @@ dependencies:
   retrofit: ^4.1.0
   retrofit_generator: ^8.1.0
   shared_preferences: ^2.2.3
+  url_launcher: ^6.2.6
   video_player: ^2.8.6
 dev_dependencies:
   flutter_lints: ^3.0.0
@@ -78,7 +80,7 @@ flutter:
     - assets/videoTest.mp4
     - assets/chat/Sent_icon.png
     - assets/home/memlogpic.png
-    - assets/splash/splashscreen.png
+   
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see

@@ -4,6 +4,10 @@ import 'package:get_it/get_it.dart';
 import 'package:mem/features/authentication/login/data/repository/login_repo.dart';
 import 'package:mem/features/authentication/register/logic/cubit/register_cubit.dart';
 import 'package:mem/features/authentication/register/repository/register_repo.dart';
+import 'package:mem/features/meeting/data/repo/meetings_repo.dart';
+import 'package:mem/features/meeting/logic/cubit/meeting_cubit.dart';
+import 'package:mem/features/home/data/repo/user_put_picture_repo.dart';
+import 'package:mem/features/home/logic/cubit/put_image_cubit.dart';
 
 import '../networking/api_service.dart';
 import '../networking/dio_factory.dart';
@@ -22,4 +26,13 @@ Future<void> setupGetIt() async {
 // register
   getIt.registerLazySingleton<RegisterReop>(() => RegisterReop(getIt()));
   getIt.registerFactory<RegisterCubit>(() => RegisterCubit(getIt()));
+
+//meeting
+  getIt.registerLazySingleton<MeetingRepo>(() => MeetingRepo(getIt()));
+  getIt.registerFactory<MeetingCubit>(() => MeetingCubit(getIt()));
+
+  //putpictute
+
+ getIt.registerLazySingleton<UserPutPictureRepo>(() => UserPutPictureRepo(getIt()));
+  getIt.registerFactory<PutImageCubit>(() => PutImageCubit(getIt()));
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mem/core/extension/num_extension.dart';
 import 'package:mem/core/themes/app_style.dart';
 import 'package:mem/features/exercises/presentation/widgets/video_player_item.dart';
-import 'package:mem/features/home/presentation/widgets/home/home_head_text.dart';
+import 'package:mem/features/home/ui/widgets/home/home_head_text.dart';
 
 class ExerciseDetailsItem extends StatelessWidget {
   const ExerciseDetailsItem(

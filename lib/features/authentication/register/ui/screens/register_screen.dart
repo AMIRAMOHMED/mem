@@ -5,7 +5,7 @@ import 'package:mem/core/resources/validation.dart';
 import 'package:mem/core/themes/app_style.dart';
 import 'package:mem/features/authentication/register/logic/cubit/register_cubit.dart';
 
-import 'package:mem/features/authentication/register/ui/widgets/pick_image_widget.dart';
+import 'package:mem/features/home/ui/widgets/Drawer/pick_image_widget.dart';
 import 'package:mem/features/authentication/register/ui/widgets/register_blco_listner.dart';
 import 'package:mem/features/authentication/register/ui/widgets/user_selection_box.dart';
 import 'package:mem/features/authentication/widgets/buttom_auth.dart';
@@ -60,15 +60,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   style: AppStyles.font40Black(context),
                 ),
                 SizedBox(height: 10.h),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(
-                      height: 120.h,
-                      width: 130.w,
-                      child: const PickImageWidget(
-                      ),
-                    ),
+                   
                   ],
                 ),
                 Row(
