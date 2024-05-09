@@ -3,8 +3,11 @@ class ApiConstants {
   static const String registerEndpoint = 'auth/signup/password';
   static const String loginEndpoint = 'auth/signin/password';
   static const String meetingEndpoint = "meetings/all";
+    static const String notificationsEndpoint = "notifications/all";
+
   static const String setFireBaseId = "user/firebase-id";
   static const String putUserPic = "user/changepic";
+
 }
 
 class ApiErrors {
