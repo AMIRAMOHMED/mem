@@ -4,6 +4,7 @@ import 'package:mem/features/authentication/login/data/models/login_request_body
 import 'package:mem/features/authentication/login/data/models/set_firebase_id_request_body.dart';
 import 'package:mem/features/authentication/register/models/register_requset_body.dart';
 import 'package:mem/features/authentication/register/models/register_respons.dart';
+import 'package:mem/features/exercises/data/models/exercise_model.dart';
 import 'package:mem/features/home/ui/Screens/notification/data/model/notification_respons_body.dart';
 import 'package:mem/features/meeting/data/models/meetings_respons_body.dart';
 import 'package:retrofit/http.dart';
@@ -46,4 +47,8 @@ abstract class ApiService {
     @Header('Authorization') String token,
   );
 
+  @GET(ApiConstants.exercisesEndpoint)
+  Future<List<ExerciseModel>> getAllExercises(
+    @Header('Authorization') String token,
+  );
 }

@@ -4,6 +4,8 @@ import 'package:get_it/get_it.dart';
 import 'package:mem/features/authentication/login/data/repository/login_repo.dart';
 import 'package:mem/features/authentication/register/logic/cubit/register_cubit.dart';
 import 'package:mem/features/authentication/register/repository/register_repo.dart';
+import 'package:mem/features/exercises/data/repo/exercise_repo.dart';
+import 'package:mem/features/exercises/logic/cubit/exercises_cubit.dart';
 import 'package:mem/features/home/ui/Screens/notification/data/repo/notification_repo.dart';
 import 'package:mem/features/home/ui/Screens/notification/logic/cubit/notification_cubit_cubit.dart';
 import 'package:mem/features/meeting/data/repo/meetings_repo.dart';
@@ -44,4 +46,8 @@ Future<void> setupGetIt() async {
   getIt
       .registerLazySingleton<NotificationRepo>(() => NotificationRepo(getIt()));
   getIt.registerFactory<NotificationCubit>(() => NotificationCubit(getIt()));
+
+  //exercises
+  getIt.registerLazySingleton<ExerciseRepo>(() => ExerciseRepo(getIt()));
+  getIt.registerFactory<ExercisesCubit>(() => ExercisesCubit(getIt()));
 }

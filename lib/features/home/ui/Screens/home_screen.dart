@@ -63,11 +63,11 @@ class HomeScreen extends StatelessWidget {
                   color: AppPallete.lightGray,
                 ),
                 const HomeHeadText(text: "القوائم"),
-             BuildMeetingList(
-              // onGroupItemTap: () {
-              //   context.pushName(collaborationScreen);
-              // },  
-             )
+                BuildMeetingList(
+                    // onGroupItemTap: () {
+                    //   context.pushName(collaborationScreen);
+                    // },
+                    )
               ],
             ),
           ),

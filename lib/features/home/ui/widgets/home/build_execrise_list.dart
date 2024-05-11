@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mem/core/resources/assets.dart';
 import 'package:mem/core/themes/app_pallete.dart';
+import 'package:mem/features/exercises/data/models/exercise_model.dart';
 import 'package:mem/features/home/ui/widgets/home/execrise.item.dart';
 
 class BuildExecriseItemHome extends StatelessWidget {
@@ -17,22 +18,22 @@ class BuildExecriseItemHome extends StatelessWidget {
   }
 
   static final List<ExerciseItem> items = [
-    ExerciseItem(
+    const ExerciseItem(
       text: 'تمارين التنفس',
       color: AppPallete.lightBlueColor,
-      onTap: () {},
+      exerciseType: ExerciseType.breathing,
       image: Assets.breathing,
     ),
-    ExerciseItem(
+    const ExerciseItem(
       text: 'تمارين الاسترخاء',
       color: AppPallete.lightPink,
-      onTap: () {},
+      exerciseType: ExerciseType.yoga,
       image: Assets.relaxtion,
     ),
-    ExerciseItem(
-        text: 'محاكي3D',
+    const ExerciseItem(
+        text: 'محاكي ' + "3D",
         color: AppPallete.purpleColor,
-        onTap: () {},
+        exerciseType: ExerciseType.vid_3d,
         image: Assets.threeDModel),
   ];
 }

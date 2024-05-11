@@ -6,6 +6,7 @@ import 'package:mem/features/authentication/login/logic/cubit/login_cubit.dart';
 import 'package:mem/features/authentication/register/logic/cubit/register_cubit.dart';
 import 'package:mem/features/authentication/login/ui/login_screen.dart';
 import 'package:mem/features/authentication/register/ui/screens/register_screen.dart';
+import 'package:mem/features/exercises/data/models/exercise_model.dart';
 import 'package:mem/features/meeting/data/models/meetings_respons_body.dart';
 import 'package:mem/features/meeting/presentation/screens/collaboration_screen.dart';
 import 'package:mem/features/exercises/presentation/screens/exercises_screen.dart';
@@ -47,7 +48,7 @@ class AppRoutes {
         );
       case exerciseScreen:
         return MaterialPageRoute(
-          builder: (_) => const ExerciseScreen(),
+          builder: (_) => ExerciseScreen(type: args as ExerciseType),
         );
       case informationGroupScreen:
         return MaterialPageRoute(
