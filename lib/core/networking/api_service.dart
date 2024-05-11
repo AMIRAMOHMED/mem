@@ -5,6 +5,7 @@ import 'package:mem/features/authentication/login/data/models/set_firebase_id_re
 import 'package:mem/features/authentication/register/models/register_requset_body.dart';
 import 'package:mem/features/authentication/register/models/register_respons.dart';
 import 'package:mem/features/group%20chat/data/model/get_all_groups_response.dart';
+import 'package:mem/features/exercises/data/models/exercise_model.dart';
 import 'package:mem/features/home/ui/Screens/notification/data/model/notification_respons_body.dart';
 import 'package:mem/features/meeting/data/models/meetings_respons_body.dart';
 import 'package:mem/features/meeting/splash%20screen/data/models/token_request_body.dart';
@@ -49,15 +50,18 @@ abstract class ApiService {
     @Header('Authorization') String token,
   );
 
-    @POST(ApiConstants.vaildateToken)
-  Future <TokenVaildateResponseBody>vailadateToken(
+  @POST(ApiConstants.vaildateToken)
+  Future<TokenVaildateResponseBody> vailadateToken(
     @Body() TokenRequestBody tokenRequestBody,
   );
 
-@GET(ApiConstants.getAllGroup)
+  @GET(ApiConstants.getAllGroup)
   Future<List<GetAllGroupResponseBody>> getAllGroups(
     @Header('Authorization') String token,
   );
 
-
+  @GET(ApiConstants.exercisesEndpoint)
+  Future<List<ExerciseModel>> getAllExercises(
+    @Header('Authorization') String token,
+  );
 }

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:mem/core/widgets/head_container.dart';
+import 'package:mem/features/exercises/data/models/exercise_model.dart';
 import 'package:mem/features/exercises/presentation/widgets/build_exercise_details_item.dart';
 
 import '../../../../core/themes/app_pallete.dart';
 
 class ExerciseScreen extends StatelessWidget {
-  const ExerciseScreen({super.key});
+  final ExerciseType type;
+  const ExerciseScreen({super.key, required this.type});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,7 @@ class ExerciseScreen extends StatelessWidget {
                   color: AppPallete.purpleColor,
                 ),
               ),
-              const BuildExerciseDetailsItem()
+              BuildExerciseDetailsItem(type: type)
             ],
           ),
         ),
