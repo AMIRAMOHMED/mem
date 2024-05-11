@@ -3,11 +3,13 @@ import 'package:mem/core/resources/assets.dart';
 import 'package:mem/core/themes/app_pallete.dart';
 import 'package:mem/core/themes/app_style.dart';
 import 'package:mem/core/widgets/head_container.dart';
-import 'package:mem/features/group%20chat/presentation/widgets/build_chat.dart';
+import 'package:mem/features/group%20chat/data/model/get_all_groups_response.dart';
 import 'package:mem/features/group%20chat/presentation/widgets/chat_buble.dart';
 
 class GroupChatScreen extends StatelessWidget {
-  const GroupChatScreen({super.key});
+  const GroupChatScreen({super.key, required this.groups});
+  final GetAllGroupResponseBody groups;
+
 
   @override
   Widget build(BuildContext context) {
@@ -19,15 +21,15 @@ class GroupChatScreen extends StatelessWidget {
           ),
           AppBar(
             automaticallyImplyLeading: false,
-            title: const HeadContainer(
-              text: 'اسم المجموعة',
+            title:  HeadContainer(
+              text: "${groups.name}",
               color: AppPallete.mintGreen,
               isINfoIcon: true,
             ),
           ),Expanded(
       child: ListView.builder(
         itemBuilder: (context, index) {
-          return const ChatBuble();
+          return const ChatBubble();
         },
       ),
     ),

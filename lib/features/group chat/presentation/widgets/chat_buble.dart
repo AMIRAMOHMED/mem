@@ -1,70 +1,62 @@
 import 'package:flutter/material.dart';
+import 'package:mem/core/extension/num_extension.dart';
 import 'package:mem/core/resources/assets.dart';
+import 'package:mem/core/themes/app_pallete.dart';
 import 'package:mem/core/themes/app_style.dart';
 
-import '../../../../core/themes/app_pallete.dart';
 
-class ChatBuble extends StatelessWidget {
-  const ChatBuble({super.key});
+class ChatBubble extends StatelessWidget {
+  const ChatBubble({super.key});
+
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        padding: const EdgeInsets.all(10),
-        child: Row(
-          children: [
-            CircleAvatar(
-              radius: 20,
-              child: ClipOval(
-                child: Image.asset(
-                  Assets.profileLogo,
+    return Container(
+      margin:  EdgeInsets.symmetric(vertical: 10.h),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const CircleAvatar(
+            radius: 20,
+            backgroundImage: AssetImage(Assets.profileLogo)
+          ),
+           SizedBox(width: 5.w),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "الاسم",
+                  style: AppStyles.font13Black(context),
                 ),
-              ),
-            ),
-            const SizedBox(
-              width: 5,
-            ),
-            Expanded(
-              child: Container(
-                padding: const EdgeInsets.all(15),
-                decoration: BoxDecoration(
-                  color: AppPallete.lightMintGreen,
-                  borderRadius: BorderRadius.circular(20),
+                SizedBox(height: 5.h),
+                Text(
+                  "الوقت",
+                  style: AppStyles.font13Black(context),
                 ),
-                child: Expanded(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                SizedBox(height: 5.h),
+                Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: AppPallete.lightPink,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      Column(
-                        children: [
-                          Text(
-                            "محمد",
-                            style: AppStyles.font13Black(context),
-                          ),
-                          Text(
-                            "5:30 م",
-                            style: AppStyles.font13Black(context),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Expanded(
-                        child: Text(
-                          textAlign: TextAlign.right,
-                          "هاي انا نور ",
-                          style: AppStyles.font20Black(context),
-                        ),
+                      Text(
+                        "vgf bvbvb درزدزر دزردزردز زدزددرزدز زدزردرز زدزدرو زدزر  bnbnmbm nbnm زدزردرزدر  زدرزدرز زدرزدر vb",
+                        textAlign: TextAlign.right,
+                        style: AppStyles.font20Black(context),
                       ),
                     ],
                   ),
                 ),
-              ),
+                SizedBox(height: 5.h),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

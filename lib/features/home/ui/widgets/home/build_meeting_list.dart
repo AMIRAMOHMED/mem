@@ -5,9 +5,10 @@ import 'package:mem/core/extension/num_extension.dart';
 import 'package:mem/core/routing/routes_models.dart';
 import 'package:mem/core/service/shared_pref/pref_keys.dart';
 import 'package:mem/core/service/shared_pref/shared_pref.dart';
+import 'package:mem/features/home/ui/widgets/home/empty_container_state.dart';
 import 'package:mem/features/meeting/logic/cubit/meeting_cubit.dart';
 import 'package:mem/features/meeting/logic/cubit/meeting_cubit_state.dart';
-import 'package:mem/features/home/ui/widgets/home/group_item.dart';
+import 'package:mem/features/home/ui/widgets/home/meeting_item.dart';
 
 import '../../../../../core/di/injection_container.dart';
 
@@ -40,21 +41,33 @@ class BuildMeetingList extends StatelessWidget {
       builder: (context, state) {
         return state.when(
           initial: () => Container(),
-          error: (errorMSG) => Container(),
-          loading: () => const SizedBox.shrink(),
-          success: (meetingList) => ListView.builder(
-            scrollDirection: _sharedPref.getString(PrefKeys.type) == "STUTTERER"
-                ? Axis.horizontal
-                : Axis.vertical,
-            physics: const BouncingScrollPhysics(),
-            itemCount: meetingList.length,
-            itemBuilder: (context, index) => GestureDetector(
-              onTap: () {
-                context.pushName(collaborationScreen,arguments: meetingList[index]);
-              },
-              child: GrouppItem(meeting: meetingList[index]),
-            ),
+          error: (errorMsg) => Center(
+            child: Text("Error: $errorMsg"),
           ),
+          loading: () => const CircularProgressIndicator(),
+          success: (meetingList) {
+            if (meetingList.isEmpty) {
+              return const EmptyContainerState(
+                text: 'ليس لديك مواعيد',
+              );
+            } else {
+              return ListView.builder(
+                scrollDirection:
+                    _sharedPref.getString(PrefKeys.type) == "STUTTERER"
+                        ? Axis.horizontal
+                        : Axis.vertical,
+                physics: const BouncingScrollPhysics(),
+                itemCount: meetingList.length,
+                itemBuilder: (context, index) => GestureDetector(
+                  onTap: () {
+                    context.pushName(collaborationScreen,
+                        arguments: meetingList[index]);
+                  },
+                  child: MeetingItem(meeting: meetingList[index]),
+                ),
+              );
+            }
+          },
         );
       },
     );

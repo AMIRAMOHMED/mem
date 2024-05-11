@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:mem/core/extension/num_extension.dart';
 import 'package:mem/core/themes/app_pallete.dart';
 import 'package:mem/core/themes/app_style.dart';
-import 'package:mem/features/group%20chat/data/model/get_all_groups_response.dart';
 
-class GrouppItem extends StatelessWidget {
-  const GrouppItem({
-    required this.groups,
+class EmptyContainerState extends StatelessWidget {
+  const EmptyContainerState({
     super.key,
+    required this.text,
   });
-  final GetAllGroupResponseBody groups;
+
+  final String text;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -25,7 +25,7 @@ class GrouppItem extends StatelessWidget {
           ),
           child: Center(
             child: Text(
-              " ${groups.name}",
+              text,
               style: AppStyles.font24White(context),
             ),
           ),

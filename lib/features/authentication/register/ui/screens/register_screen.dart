@@ -5,7 +5,6 @@ import 'package:mem/core/resources/validation.dart';
 import 'package:mem/core/themes/app_style.dart';
 import 'package:mem/features/authentication/register/logic/cubit/register_cubit.dart';
 
-import 'package:mem/features/home/ui/widgets/Drawer/pick_image_widget.dart';
 import 'package:mem/features/authentication/register/ui/widgets/register_blco_listner.dart';
 import 'package:mem/features/authentication/register/ui/widgets/user_selection_box.dart';
 import 'package:mem/features/authentication/widgets/buttom_auth.dart';
@@ -24,7 +23,6 @@ late TextEditingController emailController;
 late TextEditingController firstNameController;
 late TextEditingController lastNameController;
 late TextEditingController passwordController;
-
 
 TextEditingController confirmPasswordController = TextEditingController();
 String selectedUserOption = '';
@@ -54,6 +52,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             key: formKey,
             child: ListView(
               children: [
+                SizedBox(height: 50.h),
                 Text(
                   "تسجيل حساب جديد",
                   textAlign: TextAlign.center,
@@ -62,9 +61,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 SizedBox(height: 10.h),
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                   
-                  ],
+                  children: [],
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -191,7 +188,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     if (formKey.currentState!.validate()) {
                       context
                           .read<RegisterCubit>()
-                          .emitRegisterState( selectedUserOption);
+                          .emitRegisterState(selectedUserOption);
                     }
                   },
                 ),

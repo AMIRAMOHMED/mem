@@ -41,6 +41,7 @@ class PutImageCubit extends Cubit<PutImageState> {
         emit(const PutImageState.initial());
       }
     } else if (status.isPermanentlyDenied) {
+      // ignore: use_build_context_synchronously
       _showAlertPermissionsDialog(context);
     }
   } 

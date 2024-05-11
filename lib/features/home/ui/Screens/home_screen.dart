@@ -7,6 +7,7 @@ import 'package:mem/core/service/shared_pref/shared_pref.dart';
 import 'package:mem/core/themes/app_pallete.dart';
 import 'package:mem/core/themes/app_style.dart';
 import 'package:mem/features/home/ui/widgets/Drawer/dawer.dart';
+import 'package:mem/features/home/ui/widgets/home/build_groups_list.dart';
 import 'package:mem/features/home/ui/widgets/home/build_meeting_list.dart';
 import 'package:mem/features/home/ui/widgets/home/home_head_text.dart';
 
@@ -53,20 +54,17 @@ class HomeScreen extends StatelessWidget {
                 const HomeHeadText(
                   text: "المجموعات",
                 ),
-                // BuildGroupsList(
-                //   onGroupItemTap: () {
-                //     context.pushName(groupChatScreen);
-                //   },
-                // ),
+                BuildGroupsList(
+                  
+                  
+                ),
                 Divider(
                   height: .5,
                   color: AppPallete.lightGray,
                 ),
                 const HomeHeadText(text: "القوائم"),
              BuildMeetingList(
-              // onGroupItemTap: () {
-              //   context.pushName(collaborationScreen);
-              // },  
+               
              )
               ],
             ),

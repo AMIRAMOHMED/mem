@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:mem/core/extension/num_extension.dart';
 import 'package:mem/core/themes/app_pallete.dart';
 import 'package:mem/core/themes/app_style.dart';
-import 'package:mem/features/group%20chat/data/model/get_all_groups_response.dart';
+import 'package:mem/features/meeting/data/models/meetings_respons_body.dart';
 
-class GrouppItem extends StatelessWidget {
-  const GrouppItem({
-    required this.groups,
+class MeetingItem extends StatelessWidget {
+  const MeetingItem({
+    required this.meeting,
     super.key,
   });
-  final GetAllGroupResponseBody groups;
+  final MeetingResponsBody meeting;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -25,7 +25,7 @@ class GrouppItem extends StatelessWidget {
           ),
           child: Center(
             child: Text(
-              " ${groups.name}",
+              " ${meeting.name}",
               style: AppStyles.font24White(context),
             ),
           ),

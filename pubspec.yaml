@@ -72,7 +72,6 @@ flutter:
   assets:
     - assets/splash/mem_logo.lottie-1.json
     - assets/splash/Vector 1.jpg
-    - assets/auth/Google.jpg
     - assets/home/3DModel.png
     - assets/home/breathing.png
     - assets/home/relaxtion.png

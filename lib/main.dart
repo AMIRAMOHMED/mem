@@ -6,8 +6,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mem/core/app/bloc_abserver.dart';
 import 'package:mem/core/di/injection_container.dart';
 import 'package:mem/core/routing/app_routing.dart';
-import 'package:mem/core/routing/routes_models.dart';
-import 'package:mem/core/service/shared_pref/pref_keys.dart';
 import 'package:mem/core/service/shared_pref/shared_pref.dart';
 import 'package:mem/core/themes/app_theme.dart';
 import 'package:mem/firebase_options.dart';
@@ -23,13 +21,10 @@ class Mem extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRoutes().onGenerateRoute,
       theme: AppTheme.darkTthemeMode,
-      initialRoute: SharedPref().getBoolean(PrefKeys.isLogin) == true
-          ? homeScreen
-          : loginScreen,
+      navigatorKey: navigator,
     );
   }
 }
-
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
