@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:mem/core/extension/num_extension.dart';
 import 'package:mem/core/resources/assets.dart';
+import 'package:mem/core/resources/constants.dart';
 import 'package:mem/core/themes/app_pallete.dart';
 import 'package:mem/core/themes/app_style.dart';
 import 'package:mem/features/group%20chat/data/model/message_model.dart';
@@ -30,7 +31,7 @@ class ChatBubleForOther extends StatelessWidget {
                 ),
                 SizedBox(height: 5.h),
                 Text(
-                  message.createdAt.toString(),
+                  Constants.dateFormat.format(message.createdAt),
                   textAlign: TextAlign.right,
                   style: AppStyles.font13Black(context),
                 ),
