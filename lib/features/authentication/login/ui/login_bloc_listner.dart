@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mem/core/extension/context_extension.dart';
@@ -9,7 +8,7 @@ import 'package:mem/features/authentication/login/logic/cubit/login_cubit.dart';
 import 'package:mem/features/authentication/login/logic/cubit/login_state.dart';
 
 class LoginBlocListener extends StatelessWidget {
-  const LoginBlocListener({super.key});
+  const LoginBlocListener({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,18 +28,36 @@ class LoginBlocListener extends StatelessWidget {
             );
           },
           success: (loginResponse) async {
-            context.pop();
-
-            context.pushReplacementNamed(homeScreen);
+            Navigator.of(context).pop(); // Dismiss the loading dialog
+            Navigator.of(context).pushReplacementNamed(homeScreen); // Navigate to home screen
           },
           error: (error) {
-            setupErrorState(context, error);
+             print("Error occurred: $error"); 
+            showDialog(
+              context: context,
+              builder: (context) => AlertDialog(
+                title: Text(
+                  error.toString(), 
+                  style: AppStyles.font20Black(context),
+                  textAlign: TextAlign.center,
+                ),
+                actions: <Widget>[
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pop(); // Dismiss the dialog
+                    },
+                    child: Text('OK'),
+                  ),
+                ],
+              ),
+            );
           },
         );
       },
       child: const SizedBox.shrink(),
     );
   }
+}
 
   void setupErrorState(BuildContext context, String error) {
     context.pop();
@@ -54,7 +71,7 @@ class LoginBlocListener extends StatelessWidget {
         ),
         content: Text(
           error,
-          style: AppStyles.font24Blue(context),
+          style: AppStyles.font24White(context),
         ),
         actions: [
           TextButton(
@@ -63,11 +80,12 @@ class LoginBlocListener extends StatelessWidget {
             },
             child: Text(
               'Got it',
-              style: AppStyles.font20Black(context),
+              style: AppStyles.
+              font24White(context),
             ),
           ),
         ],
       ),
     );
   }
-}
+

@@ -29,6 +29,7 @@ class PutImageCubit extends Cubit<PutImageState> {
           PrefKeys.profilePictureUrl,
         image.path ,
         );
+        print (image.path);
             emit(PutImageState.success(pickImage));
           },
           failure: (error) {

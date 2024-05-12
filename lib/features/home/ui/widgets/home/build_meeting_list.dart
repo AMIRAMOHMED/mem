@@ -28,7 +28,7 @@ class BuildMeetingList extends StatelessWidget {
           return SizedBox(
             height: _sharedPref.getString(PrefKeys.type) == "STUTTERER"
                 ? 120.0.h
-                : 300.h,
+                : 120.h,
             child: _buildMeetingList(context, state),
           );
         },

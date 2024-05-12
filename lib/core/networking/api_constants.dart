@@ -8,6 +8,8 @@ class ApiConstants {
   static const String setFireBaseId = "user/firebase-id";
   static const String putUserPic = "user/changepic";
   static const String getAllGroup = "groups/all";
+  static const String getAllMessage = "groups/";
+  static const String getUserDetails = "user/info";
 }
 
 class ApiErrors {

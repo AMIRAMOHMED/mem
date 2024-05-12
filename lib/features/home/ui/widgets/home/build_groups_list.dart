@@ -17,7 +17,6 @@ class BuildGroupsList extends StatelessWidget {
   });
   final SharedPref _sharedPref = SharedPref();
 
-
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -27,7 +26,7 @@ class BuildGroupsList extends StatelessWidget {
           return SizedBox(
             height: _sharedPref.getString(PrefKeys.type) == "STUTTERER"
                 ? 120.0.h
-                : 300.h,
+                : 120.h,
             child: _buildGroupsList(context, state),
           );
         },
@@ -35,8 +34,7 @@ class BuildGroupsList extends StatelessWidget {
     );
   }
 
-
-Widget _buildGroupsList(BuildContext context, GroupChatState state) {
+  Widget _buildGroupsList(BuildContext context, GroupChatState state) {
     return BlocBuilder<GroupChatCubit, GroupChatState>(
       builder: (context, state) {
         return state.when(
@@ -73,7 +71,3 @@ Widget _buildGroupsList(BuildContext context, GroupChatState state) {
     );
   }
 }
-
-
-
-

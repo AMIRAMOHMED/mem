@@ -47,8 +47,8 @@ class AppRoutes {
         );
       case groupChatScreen:
         return MaterialPageRoute(
-          builder: (_) => GroupChatScreen(
-            groups: args as GetAllGroupResponseBody,
+          builder: (_) => ChatScreen(
+            meeting: args as GetAllGroupResponseBody,
           ),
         );
       case exerciseScreen:

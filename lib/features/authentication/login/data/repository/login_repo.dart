@@ -20,7 +20,7 @@ class LoginRepo {
       return ApiResult.success(response );
 
     } catch (error) {
-      return ApiResult<UserData>.failure(ErrorHandler.handle(error));
+      return ApiResult.failure(ErrorHandler.handle(error));
     }
   }
  Future setFirebaseId(String token, SetFireBaseIdBodyRequest setFireBaseIdBodyRequest) async {

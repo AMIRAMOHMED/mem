@@ -35,22 +35,20 @@ class LoginCubit extends Cubit<LoginState> {
           PrefKeys.displayName,
           userData.firstName ?? '',
         );
-       
+
         await SharedPref().setString(
           PrefKeys.type,
           userData.type ?? '',
         );
-        await SharedPref().setBoolean(PrefKeys.isLogin, true);
-
+        await SharedPref().setString(
+          PrefKeys.userId,
+          userData.id ?? '',
+        );
         FirebaseMessaging.instance.getToken().then((String? tokenId) async {
-          await _loginRepo.setFirebaseId(
-            'Bearer ${userData.token}',
-            SetFireBaseIdBodyRequest(id: tokenId!)
-          );
-            debugPrint('Login Token ==> $tokenId');
+          await _loginRepo.setFirebaseId('Bearer ${userData.token}',
+              SetFireBaseIdBodyRequest(id: tokenId!));
+          debugPrint('Login Token ==> $tokenId');
         });
-
-      
 
         emit(LoginState.success(loginResponse));
       },

@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:mem/core/app/bloc_abserver.dart';
 import 'package:mem/core/di/injection_container.dart';
 import 'package:mem/core/routing/app_routing.dart';
@@ -23,6 +24,7 @@ class Mem extends StatelessWidget {
       theme: AppTheme.darkTthemeMode,
       navigatorKey: navigator,
     );
+   
   }
 }
 

@@ -20,7 +20,7 @@ class MeetingItem extends StatelessWidget {
           width: 200.w,
           height: 100.h,
           decoration: BoxDecoration(
-            color: AppPallete.black,
+            color: AppPallete.lightBlueColor,
             borderRadius: BorderRadius.circular(10),
           ),
           child: Center(

@@ -120,7 +120,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     buttomText: 'تسجيل حساب جديد',
                     color: AppPallete.white,
                     onPressed: () {
-                      context.pushReplacementNamed(registerScreen);
+                      context.pushName(registerScreen);
                     },
                     textStyle: AppStyles.font24Blue(context),
                   ),
