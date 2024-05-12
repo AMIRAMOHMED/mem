@@ -54,18 +54,17 @@ class HomeScreen extends StatelessWidget {
                 const HomeHeadText(
                   text: "المجموعات",
                 ),
-                BuildGroupsList(
-                  
-                  
-                ),
+                BuildGroupsList(),
                 Divider(
                   height: .5,
                   color: AppPallete.lightGray,
                 ),
                 const HomeHeadText(text: "القوائم"),
-             BuildMeetingList(
-               
-             )
+                BuildMeetingList(
+                    // onGroupItemTap: () {
+                    //   context.pushName(collaborationScreen);
+                    // },
+                    )
               ],
             ),
           ),

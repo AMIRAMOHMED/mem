@@ -7,4 +7,3 @@ const String exerciseScreen = '/exerciseScreen';
 const String collaborationScreen = '/collaborationScreen';
 const String informationGroupScreen = '/informationGroupScreen';
 const String notificationScreen = '/notificationScreen';
-

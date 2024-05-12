@@ -8,6 +8,7 @@ import 'package:mem/features/authentication/login/ui/login_screen.dart';
 import 'package:mem/features/authentication/register/ui/screens/register_screen.dart';
 import 'package:mem/features/group%20chat/data/model/get_all_groups_response.dart';
 import 'package:mem/features/home/ui/Screens/notification/ui/screens/notification_screen.dart';
+import 'package:mem/features/exercises/data/models/exercise_model.dart';
 import 'package:mem/features/meeting/data/models/meetings_respons_body.dart';
 import 'package:mem/features/meeting/presentation/screens/collaboration_screen.dart';
 import 'package:mem/features/exercises/presentation/screens/exercises_screen.dart';
@@ -53,9 +54,9 @@ class AppRoutes {
         );
       case exerciseScreen:
         return MaterialPageRoute(
-          builder: (_) => const ExerciseScreen(),
+          builder: (_) => ExerciseScreen(type: args as ExerciseType),
         );
-        case notificationScreen:
+      case notificationScreen:
         return MaterialPageRoute(
           builder: (_) => const NotificationScreen(),
         );

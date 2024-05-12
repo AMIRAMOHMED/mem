@@ -6,6 +6,8 @@ import 'package:mem/features/authentication/register/logic/cubit/register_cubit.
 import 'package:mem/features/authentication/register/repository/register_repo.dart';
 import 'package:mem/features/group%20chat/data/repo/get_all_groups_repo.dart';
 import 'package:mem/features/group%20chat/logic/group%20chat%20cubit/group_chat_cubit.dart';
+import 'package:mem/features/exercises/data/repo/exercise_repo.dart';
+import 'package:mem/features/exercises/logic/cubit/exercises_cubit.dart';
 import 'package:mem/features/home/ui/Screens/notification/data/repo/notification_repo.dart';
 import 'package:mem/features/home/ui/Screens/notification/logic/cubit/notification_cubit_cubit.dart';
 import 'package:mem/features/meeting/data/repo/meetings_repo.dart';
@@ -33,7 +35,6 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<RegisterReop>(() => RegisterReop(getIt()));
   getIt.registerFactory<RegisterCubit>(() => RegisterCubit(getIt()));
 
-
   //check token
 
   getIt.registerLazySingleton<VaildateTokenRepo>(
@@ -56,9 +57,10 @@ Future<void> setupGetIt() async {
       .registerLazySingleton<NotificationRepo>(() => NotificationRepo(getIt()));
   getIt.registerFactory<NotificationCubit>(() => NotificationCubit(getIt()));
 
-   // group chat
+  // group chat
   getIt.registerLazySingleton<GroupRepo>(() => GroupRepo(getIt()));
-
   getIt.registerFactory<GroupChatCubit>(() => GroupChatCubit(getIt()));
+  //exercises
+  getIt.registerLazySingleton<ExerciseRepo>(() => ExerciseRepo(getIt()));
+  getIt.registerFactory<ExercisesCubit>(() => ExercisesCubit(getIt()));
 }
-

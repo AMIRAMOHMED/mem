@@ -16,10 +16,11 @@ class VideoPlayerItemState extends State<VideoPlayerItem> {
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.asset(widget.videoAssets)
-      ..initialize().then((_) {
-        setState(() {});
-      });
+    _controller =
+        VideoPlayerController.networkUrl(Uri.parse(widget.videoAssets))
+          ..initialize().then((_) {
+            setState(() {});
+          });
   }
 
   @override
