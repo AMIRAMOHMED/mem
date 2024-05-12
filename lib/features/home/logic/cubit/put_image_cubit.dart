@@ -16,9 +16,8 @@ class PutImageCubit extends Cubit<PutImageState> {
 
   Future<void> pickImageAction(BuildContext context) async {
     final token = SharedPref().getString(PrefKeys.accessToken);
-    final status = await Permission.storage.request();
+    final status = await Permission.videos.request();
     if (status.isGranted) {
-      emit(const PutImageState.loading());
       final image = await ImagePicker().pickImage(source: ImageSource.gallery);
       if (image != null) {
         final result = await _userPutPictureRepo.uploadImage(image, "Bearer $token");
@@ -29,7 +28,6 @@ class PutImageCubit extends Cubit<PutImageState> {
           PrefKeys.profilePictureUrl,
         image.path ,
         );
-        print (image.path);
             emit(PutImageState.success(pickImage));
           },
           failure: (error) {

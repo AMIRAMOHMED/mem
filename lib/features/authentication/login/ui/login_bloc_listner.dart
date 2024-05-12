@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mem/core/extension/context_extension.dart';
 import 'package:mem/core/routing/routes_models.dart';
 import 'package:mem/core/themes/app_pallete.dart';
 import 'package:mem/core/themes/app_style.dart';
@@ -28,27 +27,19 @@ class LoginBlocListener extends StatelessWidget {
             );
           },
           success: (loginResponse) async {
-            Navigator.of(context).pop(); // Dismiss the loading dialog
-            Navigator.of(context).pushReplacementNamed(homeScreen); // Navigate to home screen
+            Navigator.of(context).pop(); 
+            Navigator.of(context)
+                .pushReplacementNamed(homeScreen); 
           },
           error: (error) {
-             print("Error occurred: $error"); 
             showDialog(
               context: context,
               builder: (context) => AlertDialog(
                 title: Text(
-                  error.toString(), 
+                  'برجاء ادخال جميع البيانات بشكل صحيح',
                   style: AppStyles.font20Black(context),
                   textAlign: TextAlign.center,
                 ),
-                actions: <Widget>[
-                  TextButton(
-                    onPressed: () {
-                      Navigator.of(context).pop(); // Dismiss the dialog
-                    },
-                    child: Text('OK'),
-                  ),
-                ],
               ),
             );
           },
@@ -58,34 +49,3 @@ class LoginBlocListener extends StatelessWidget {
     );
   }
 }
-
-  void setupErrorState(BuildContext context, String error) {
-    context.pop();
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        icon: const Icon(
-          Icons.error,
-          color: Colors.red,
-          size: 32,
-        ),
-        content: Text(
-          error,
-          style: AppStyles.font24White(context),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () {
-              context.pop();
-            },
-            child: Text(
-              'Got it',
-              style: AppStyles.
-              font24White(context),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-

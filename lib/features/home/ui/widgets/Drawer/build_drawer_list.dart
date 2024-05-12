@@ -36,6 +36,7 @@ class DrawerBuilder extends StatelessWidget {
             await SharedPref().setBoolean(PrefKeys.isLogin, false);
 
             SharedPref().clearPreferences();
+            // ignore: use_build_context_synchronously
             context.pushReplacementNamed(loginScreen);
           },
         ),

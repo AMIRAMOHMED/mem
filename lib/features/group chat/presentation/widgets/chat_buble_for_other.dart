@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:mem/core/extension/num_extension.dart';
@@ -14,6 +13,8 @@ class ChatBubleForOther extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+            DateTime updatedAtPlusTwoHours = message.updatedAt.add(const Duration(hours: 3));
+
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10.h),
       child: Row(
@@ -31,7 +32,7 @@ class ChatBubleForOther extends StatelessWidget {
                 ),
                 SizedBox(height: 5.h),
                 Text(
-                  Constants.dateFormat.format(message.createdAt),
+                  Constants.dateFormat.format(updatedAtPlusTwoHours),
                   textAlign: TextAlign.right,
                   style: AppStyles.font13Black(context),
                 ),

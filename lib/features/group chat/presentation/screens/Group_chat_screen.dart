@@ -43,8 +43,6 @@ class _ChatScreenState extends State<ChatScreen> {
   void initState() {
     super.initState();
     connect();
-    print(userId);
-    _scrollToBottom();
   }
 
   void connect() {
@@ -149,9 +147,11 @@ class _ChatScreenState extends State<ChatScreen> {
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: TextFormField(
+              style: AppStyles.font20Black(context),
               controller: _message,
               textAlign: TextAlign.right,
               decoration: InputDecoration(
+                
                 hintText: '..... اكتب رسالة',
                 hintStyle: AppStyles.font16LightGray(context),
                 prefix: GestureDetector(

@@ -31,7 +31,6 @@ class CustomListTile extends StatelessWidget {
       ),
       onTap: () {
         onTap();
-        Navigator.pop(context);
       },
     );
   }

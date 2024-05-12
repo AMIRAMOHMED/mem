@@ -32,40 +32,20 @@ class RegisterBlocListener extends StatelessWidget {
             context.pushReplacementNamed(loginScreen);
           },
           error: (error) {
-            setupErrorState(context, error);
+            showDialog(
+              context: context,
+              builder: (context) => AlertDialog(
+                title: Text(
+                  'برجاء ادخال جميع البيانات بشكل صحيح',
+                  style: AppStyles.font20Black(context),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            );
           },
         );
       },
       child: const SizedBox.shrink(),
-    );
-  }
-
-  void setupErrorState(BuildContext context, String error) {
-    context.pop();
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        icon: const Icon(
-          Icons.error,
-          color: Colors.red,
-          size: 32,
-        ),
-        content: Text(
-          error,
-          style: AppStyles.font20Black(context),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () {
-              context.pop();
-            },
-            child: Text(
-              'Got it',
-              style: AppStyles.font20Black(context),
-            ),
-          ),
-        ],
-      ),
     );
   }
 }

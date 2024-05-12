@@ -94,13 +94,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(
                     height: 10.h,
                   ),
-                  Align(
-                    alignment: Alignment.bottomLeft,
-                    child: Text(
-                      "نسيت كلمة السر؟",
-                      style: AppStyles.font16Blue(context),
-                    ),
-                  ),
                   SizedBox(
                     height: 20.h,
                   ),

@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:mem/core/extension/num_extension.dart';
 import 'package:mem/core/resources/constants.dart';
@@ -15,8 +13,8 @@ class ChatBubble extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final photo = message.sender.profilePictureUrl;
-    print(photo);
+        DateTime updatedAtPlusTwoHours = message.updatedAt.add(const Duration(hours: 3));
+
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10.h),
       child: Row(
@@ -46,7 +44,7 @@ class ChatBubble extends StatelessWidget {
                 ),
                 SizedBox(height: 5.h),
                 Text(
-                  Constants.dateFormat.format(message.createdAt),
+                  Constants.dateFormat.format(updatedAtPlusTwoHours),
                   style: AppStyles.font13Black(context),
                 ),
                 SizedBox(height: 5.h),
