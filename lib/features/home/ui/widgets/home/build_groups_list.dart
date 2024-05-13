@@ -4,18 +4,15 @@ import 'package:mem/core/di/injection_container.dart';
 import 'package:mem/core/extension/context_extension.dart';
 import 'package:mem/core/extension/num_extension.dart';
 import 'package:mem/core/routing/routes_models.dart';
-import 'package:mem/core/service/shared_pref/pref_keys.dart';
-import 'package:mem/core/service/shared_pref/shared_pref.dart';
 import 'package:mem/features/group%20chat/logic/group%20chat%20cubit/group_chat_cubit.dart';
 import 'package:mem/features/group%20chat/logic/group%20chat%20cubit/group_chat_state.dart';
 import 'package:mem/features/home/ui/widgets/home/empty_container_state.dart';
 import 'package:mem/features/home/ui/widgets/home/group_item.dart';
 
 class BuildGroupsList extends StatelessWidget {
-  BuildGroupsList({
+  const BuildGroupsList({
     super.key,
   });
-  final SharedPref _sharedPref = SharedPref();
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +21,7 @@ class BuildGroupsList extends StatelessWidget {
       child: BlocBuilder<GroupChatCubit, GroupChatState>(
         builder: (context, state) {
           return SizedBox(
-            height: _sharedPref.getString(PrefKeys.type) == "STUTTERER"
-                ? 120.0.h
-                : 120.h,
+            height:120.h,
             child: _buildGroupsList(context, state),
           );
         },
@@ -50,10 +45,10 @@ class BuildGroupsList extends StatelessWidget {
               );
             } else {
               return ListView.builder(
+                reverse: true,
                 scrollDirection:
-                    _sharedPref.getString(PrefKeys.type) == "STUTTERER"
-                        ? Axis.horizontal
-                        : Axis.vertical,
+                
+                     Axis.horizontal,
                 physics: const BouncingScrollPhysics(),
                 itemCount: groupList.length,
                 itemBuilder: (context, index) => GestureDetector(

@@ -1,35 +1,11 @@
-import 'package:mem/features/home/data/models/user_model.dart';
-
-class GetUserInfoState {
-  final bool isLoading;
-  final UserModel? userModel;
-  final String? error;
-
-  const GetUserInfoState({
-    required this.isLoading,
-    this.userModel,
-    this.error,
-  });
-
-  factory GetUserInfoState.initial() {
-    return const GetUserInfoState(isLoading: false);
-  }
-
-  factory GetUserInfoState.loading() {
-    return const GetUserInfoState(isLoading: true);
-  }
-
-  factory GetUserInfoState.success(UserModel userModel) {
-    return GetUserInfoState(
-      isLoading: false,
-      userModel: userModel,
-    );
-  }
-
-  factory GetUserInfoState.error({String? error}) {
-    return GetUserInfoState(
-      isLoading: false,
-      error: error,
-    );
-  }
+  import 'package:freezed_annotation/freezed_annotation.dart';
+part 'get_user_info_state.freezed.dart';
+@freezed
+class GetUserInfoState <T>with _$GetUserInfoState {
+  const factory GetUserInfoState.initial() = _Initial;
+    const factory GetUserInfoState.loading() = Loading;
+  const factory GetUserInfoState.success(T data) = Success<T>;
+  const factory GetUserInfoState.error({required String error}) = Error;
 }
+  
+

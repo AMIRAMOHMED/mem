@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:mem/core/extension/num_extension.dart';
 import 'package:mem/core/resources/assets.dart';
-import 'package:mem/core/service/shared_pref/pref_keys.dart';
-import 'package:mem/core/service/shared_pref/shared_pref.dart';
 import 'package:mem/core/themes/app_pallete.dart';
 import 'package:mem/features/home/ui/widgets/Drawer/build_drawer_list.dart';
 import 'package:mem/features/home/ui/widgets/Drawer/head_drawer.dart';
 
 class BuildDrawer extends StatelessWidget {
   BuildDrawer({super.key});
-  final SharedPref _sharedPref = SharedPref();
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +17,7 @@ class BuildDrawer extends StatelessWidget {
           SizedBox(
             height: 50.h,
           ),
-          HeadDrawer(name: _sharedPref.getString(PrefKeys.displayName) ?? ''),
+          const HeadDrawer(),
            SizedBox(
             height: 50.h,
           ),
