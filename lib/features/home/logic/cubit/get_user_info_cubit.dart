@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:mem/core/service/shared_pref/pref_keys.dart';
 import 'package:mem/core/service/shared_pref/shared_pref.dart';
-import 'package:mem/features/home/data/models/user_model.dart';
 import 'package:mem/features/home/data/repo/user_put_picture_repo.dart';
 import 'package:mem/features/home/logic/cubit/get_user_info_state.dart';
 
