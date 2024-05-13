@@ -12,13 +12,13 @@ import 'package:mem/features/home/ui/widgets/Drawer/pick_image_widget.dart';
 
 class HeadDrawer extends StatelessWidget {
   final String name;
+  final String? photo;
 
-  const HeadDrawer({Key? key, required this.name}) : super(key: key);
+  const HeadDrawer({Key? key, required this.name, this.photo})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-  final SharedPref _sharedPref = SharedPref();
-final photo= _sharedPref.getString(PrefKeys.profilePictureUrl) ;
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -31,11 +31,10 @@ final photo= _sharedPref.getString(PrefKeys.profilePictureUrl) ;
               child: photo == null
                   ? const PickImageWidget()
                   : ClipOval(
-                      child: Image.file(
-                    File(photo),
-                    fit: BoxFit.cover,
-                  )
-                    ),
+                      child: Image.network(
+                      photo!,
+                      fit: BoxFit.cover,
+                    )),
             ),
           ),
           const SizedBox(height: 16.0),

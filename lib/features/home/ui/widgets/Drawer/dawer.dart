@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mem/core/extension/num_extension.dart';
 import 'package:mem/core/resources/assets.dart';
 import 'package:mem/core/service/shared_pref/pref_keys.dart';
 import 'package:mem/core/service/shared_pref/shared_pref.dart';
 import 'package:mem/core/themes/app_pallete.dart';
+import 'package:mem/features/home/logic/cubit/get_user_info_cubit.dart';
 import 'package:mem/features/home/ui/widgets/Drawer/build_drawer_list.dart';
 import 'package:mem/features/home/ui/widgets/Drawer/head_drawer.dart';
 
@@ -13,6 +15,7 @@ class BuildDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cubit = context.watch<GetUserInfoCubi>();
     return Drawer(
       backgroundColor: AppPallete.white,
       child: ListView(
@@ -20,8 +23,12 @@ class BuildDrawer extends StatelessWidget {
           SizedBox(
             height: 50.h,
           ),
-          HeadDrawer(name: _sharedPref.getString(PrefKeys.displayName) ?? ''),
-           SizedBox(
+          HeadDrawer(
+              name: cubit.state.userModel == null
+                  ? ""
+                  : "${cubit.state.userModel!.firstName} ${cubit.state.userModel!.lastName}",
+              photo: cubit.state.userModel?.profilePictureUrl),
+          SizedBox(
             height: 50.h,
           ),
           const DrawerBuilder(),
