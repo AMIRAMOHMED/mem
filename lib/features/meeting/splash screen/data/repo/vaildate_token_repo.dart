@@ -2,6 +2,7 @@
 import 'package:mem/core/networking/api_error_handler.dart';
 import 'package:mem/core/networking/api_result.dart';
 import 'package:mem/core/networking/api_service.dart';
+import 'package:mem/features/authentication/login/data/models/set_firebase_id_request_body.dart';
 import 'package:mem/features/meeting/splash%20screen/data/models/token_request_body.dart';
 
 class VaildateTokenRepo {
@@ -19,4 +20,10 @@ class VaildateTokenRepo {
       return ApiResult.failure(ErrorHandler.handle(error));
     }
   }
+
+
+    Future setFirebaseId(String token, SetFireBaseIdBodyRequest setFireBaseIdBodyRequest) async {
+    await apiService.setFirebaseId(  token,setFireBaseIdBodyRequest);
+  }
+
 }

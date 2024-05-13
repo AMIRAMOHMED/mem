@@ -27,7 +27,6 @@ class _SplashScreenState extends State<SplashScreen> {
     await Future.delayed(const Duration(seconds: 3));
 
     token = await SharedPref().getString(PrefKeys.accessToken);
-
     if (token == null || token!.isEmpty) {
       context.pushReplacementNamed(loginScreen);
     } else {

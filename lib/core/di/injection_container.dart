@@ -8,12 +8,13 @@ import 'package:mem/features/group%20chat/data/repo/get_all_groups_repo.dart';
 import 'package:mem/features/group%20chat/logic/group%20chat%20cubit/group_chat_cubit.dart';
 import 'package:mem/features/exercises/data/repo/exercise_repo.dart';
 import 'package:mem/features/exercises/logic/cubit/exercises_cubit.dart';
+import 'package:mem/features/home/logic/cubit/get_user_info_cubit.dart';
 import 'package:mem/features/home/ui/Screens/notification/data/repo/notification_repo.dart';
 import 'package:mem/features/home/ui/Screens/notification/logic/cubit/notification_cubit_cubit.dart';
 import 'package:mem/features/meeting/data/repo/meetings_repo.dart';
 import 'package:mem/features/meeting/logic/cubit/meeting_cubit.dart';
 import 'package:mem/features/home/data/repo/user_put_picture_repo.dart';
-import 'package:mem/features/home/logic/cubit/put_image_cubit.dart';
+import 'package:mem/features/home/logic/put%20image%20cubit/put_image_cubit.dart';
 import 'package:mem/features/meeting/splash%20screen/data/repo/vaildate_token_repo.dart';
 import 'package:mem/features/meeting/splash%20screen/logic/cubit/vaild_tokrn_cubit.dart';
 
@@ -50,6 +51,9 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<UserPutPictureRepo>(
       () => UserPutPictureRepo(getIt()));
   getIt.registerFactory<PutImageCubit>(() => PutImageCubit(getIt()));
+    getIt.registerFactory<GetUserInfoCubi>(() => GetUserInfoCubi(getIt()));
+
+
 
   //notification
 

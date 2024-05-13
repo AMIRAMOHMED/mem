@@ -7,6 +7,7 @@ import 'package:mem/features/authentication/register/logic/cubit/register_cubit.
 import 'package:mem/features/authentication/login/ui/login_screen.dart';
 import 'package:mem/features/authentication/register/ui/screens/register_screen.dart';
 import 'package:mem/features/group%20chat/data/model/get_all_groups_response.dart';
+import 'package:mem/features/home/logic/cubit/get_user_info_cubit.dart';
 import 'package:mem/features/home/ui/Screens/notification/ui/screens/notification_screen.dart';
 import 'package:mem/features/exercises/data/models/exercise_model.dart';
 import 'package:mem/features/meeting/data/models/meetings_respons_body.dart';
@@ -24,7 +25,10 @@ class AppRoutes {
     switch (settings.name) {
       case homeScreen:
         return MaterialPageRoute(
-          builder: (_) => const HomeScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<GetUserInfoCubi>(),
+            child: const HomeScreen(),
+          ),
         );
       case loginScreen:
         return MaterialPageRoute(

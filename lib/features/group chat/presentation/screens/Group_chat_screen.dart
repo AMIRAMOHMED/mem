@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'package:flutter/material.dart';
+import 'package:mem/core/extension/num_extension.dart';
 import 'package:mem/core/networking/api_constants.dart';
 import 'package:mem/core/networking/api_service.dart';
 import 'package:mem/core/networking/dio_factory.dart';
@@ -16,7 +17,6 @@ import 'package:mem/features/group%20chat/data/repo/message_repo.dart';
 import 'package:mem/features/group%20chat/presentation/widgets/chat_buble.dart';
 import 'package:mem/features/group%20chat/presentation/widgets/chat_buble_for_other.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
-
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key, required this.meeting});
@@ -61,8 +61,6 @@ class _ChatScreenState extends State<ChatScreen> {
         print('Socket connection error: $error');
       });
 
-      socket!.connect();
-
       socket!.on("message", (data) {
         print("Message received: $data");
         final message = data[1];
@@ -71,6 +69,13 @@ class _ChatScreenState extends State<ChatScreen> {
           messagesList.add(messageModel);
         });
       });
+
+      socket!.on("connect", (_) {
+        print('Socket connected');
+        socket!.emit("joinRooms");
+      });
+
+      socket!.connect();
     } catch (e) {
       print(e);
     }
@@ -86,8 +91,8 @@ class _ChatScreenState extends State<ChatScreen> {
   void _scrollToBottom() {
     if (_controller.hasClients) {
       _controller.animateTo(
-        _controller.position.maxScrollExtent,
-        duration: const Duration(milliseconds: 100),
+        0,
+        duration: const Duration(milliseconds: 500),
         curve: Curves.easeOut,
       );
     }
@@ -103,22 +108,21 @@ class _ChatScreenState extends State<ChatScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        
         children: [
-          const SizedBox(
-                height: 30,
-              ),
-              AppBar(
-                automaticallyImplyLeading: false,
-                title:  HeadContainer(
-                  text: "${widget.meeting.name}",
-                  color: AppPallete.darkPink,
-                ),
-              ),
-         
+          SizedBox(
+            height: 30.h,
+          ),
+          AppBar(
+            automaticallyImplyLeading: false,
+            title: HeadContainer(
+              text: "${widget.meeting.name}",
+              color: AppPallete.darkPink,
+            ),
+          ),
           Expanded(
             child: StreamBuilder<List<MessageModel>>(
-              stream: getMessagesStream(),
+              stream: getMessagesStream().map((list) =>
+                  list..sort((a, b) => b.createdAt.compareTo(a.createdAt))),
               builder: (context, snapshot) {
                 if (snapshot.hasError) {
                   return Text('Error: ${snapshot.error}');
@@ -131,11 +135,11 @@ class _ChatScreenState extends State<ChatScreen> {
                 final messagesList = snapshot.data!;
 
                 return ListView.builder(
+                  reverse: true,
                   controller: _controller,
                   itemCount: messagesList.length,
                   itemBuilder: (context, index) {
                     final message = messagesList[index];
-
                     return userId == messagesList[index].senderId
                         ? ChatBubble(message: message)
                         : ChatBubleForOther(message: message);
@@ -151,7 +155,6 @@ class _ChatScreenState extends State<ChatScreen> {
               controller: _message,
               textAlign: TextAlign.right,
               decoration: InputDecoration(
-                
                 hintText: '..... اكتب رسالة',
                 hintStyle: AppStyles.font16LightGray(context),
                 prefix: GestureDetector(

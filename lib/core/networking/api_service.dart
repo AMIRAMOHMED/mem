@@ -7,6 +7,7 @@ import 'package:mem/features/authentication/register/models/register_respons.dar
 import 'package:mem/features/group%20chat/data/model/get_all_groups_response.dart';
 import 'package:mem/features/exercises/data/models/exercise_model.dart';
 import 'package:mem/features/group%20chat/data/model/message_model.dart';
+import 'package:mem/features/home/data/models/user_model.dart';
 import 'package:mem/features/home/ui/Screens/notification/data/model/notification_respons_body.dart';
 import 'package:mem/features/meeting/data/models/meetings_respons_body.dart';
 import 'package:mem/features/meeting/splash%20screen/data/models/token_request_body.dart';
@@ -72,9 +73,9 @@ abstract class ApiService {
     @Path("id") String id,
   );
 
-// @GET(ApiConstants.getUserInfo)
-//   Future<<>> getUserIno(
-//     @Header('Authorization') String token,
-//   );
+@GET(ApiConstants.getUserDetails)
+  Future<UserModel> getUserIno(
+    @Header('Authorization') String token,
+  );
 
 }

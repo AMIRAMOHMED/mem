@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:mem/core/themes/app_pallete.dart';
-import 'package:mem/features/home/logic/cubit/put_image_cubit.dart';
-import 'package:mem/features/home/logic/cubit/put_image_state.dart';
+import 'package:mem/features/home/logic/put%20image%20cubit/put_image_cubit.dart';
+import 'package:mem/features/home/logic/put%20image%20cubit/put_image_state.dart';
 
 class PickImageWidget extends StatelessWidget {
   const PickImageWidget({super.key});

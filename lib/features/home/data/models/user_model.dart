@@ -1,29 +1,27 @@
-// import 'package:json_annotation/json_annotation.dart';
+import 'package:json_annotation/json_annotation.dart';
 
-// part 'user_model.g.dart';
-// @JsonSerializable()
-// class UserModel {
-//   String? token;
-//   String? id;
+part 'user_model.g.dart';
+@JsonSerializable()
+class UserModel {
+  String? id;
 
-//   String? email;
+  String? email;
 
-//   String? firstName;
-//   String? lastName;
-//   String? username;
-//   String? type;
-//   String? profilePictureUrl;
-//   UserData({
-//     this.token,
-//     this.id,
-//     this.email,
-//     this.firstName,
-//     this.lastName,
-//     this.username,
-//     this.type,
-//     this.profilePictureUrl,
-//   });
+  String? firstName;
+  String? lastName;
+  String? username;
+  String? type;
+  String? profilePictureUrl;
+  UserModel({
+    this.id,
+    this.email,
+    this.firstName,
+    this.lastName,
+    this.username,
+    this.type,
+    this.profilePictureUrl,
+  });
 
-//   factory UserData.fromJson(Map<String, dynamic> json) =>
-//       _$UserDataFromJson(json);
-// }
+  factory UserModel.fromJson(Map<String, dynamic> json) =>
+      _$UserModelFromJson(json);
+}
