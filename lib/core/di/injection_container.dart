@@ -51,9 +51,7 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<UserPutPictureRepo>(
       () => UserPutPictureRepo(getIt()));
   getIt.registerFactory<PutImageCubit>(() => PutImageCubit(getIt()));
-    getIt.registerFactory<GetUserInfoCubi>(() => GetUserInfoCubi(getIt()));
-
-
+  getIt.registerFactory<GetUserInfoCubi>(() => GetUserInfoCubi(getIt()));
 
   //notification
 
