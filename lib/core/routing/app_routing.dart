@@ -6,6 +6,9 @@ import 'package:mem/features/authentication/login/logic/cubit/login_cubit.dart';
 import 'package:mem/features/authentication/register/logic/cubit/register_cubit.dart';
 import 'package:mem/features/authentication/login/ui/login_screen.dart';
 import 'package:mem/features/authentication/register/ui/screens/register_screen.dart';
+import 'package:mem/features/authentication/reset%20password/ui/screens/email_verficiation_screen.dart';
+import 'package:mem/features/authentication/reset%20password/ui/screens/new_password_screen.dart';
+import 'package:mem/features/authentication/reset%20password/ui/screens/reset_password_screen.dart';
 import 'package:mem/features/group%20chat/data/model/get_all_groups_response.dart';
 import 'package:mem/features/home/logic/cubit/get_user_info_cubit.dart';
 import 'package:mem/features/home/ui/Screens/notification/ui/screens/notification_screen.dart';
@@ -73,6 +76,30 @@ class AppRoutes {
           builder: (_) => BlocProvider(
             create: (context) => getIt<VaildCubit>(),
             child: const SplashScreen(),
+          ),
+        );
+
+      case newPasswordScreen:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<VaildCubit>(),
+            child: const NewPasswordScreen(),
+          ),
+        );
+
+      case resetPasswordScreen:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<VaildCubit>(),
+            child: const ResetPasswordScreen(),
+          ),
+        );
+
+      case emailVerficationScreen:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<VaildCubit>(),
+            child: const EmailVerficationScreen(),
           ),
         );
 

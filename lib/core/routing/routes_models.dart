@@ -7,3 +7,7 @@ const String exerciseScreen = '/exerciseScreen';
 const String collaborationScreen = '/collaborationScreen';
 const String informationGroupScreen = '/informationGroupScreen';
 const String notificationScreen = '/notificationScreen';
+const String newPasswordScreen = '/newPasswordScreen';
+const String  emailVerficationScreen="/emailVerficationScreen";
+const String  resetPasswordScreen="/resetPasswordScreen";
+
