@@ -44,7 +44,7 @@ class HeadDrawer extends StatelessWidget {
                               create: (context) => getIt<PutImageCubit>(),
                             ),
                           ],
-                          child: userModel.profilePictureUrl!.isEmpty
+                          child:  userModel.profilePictureUrl==null 
                               ? const PickImageWidget()
                               : ClipOval(
                                   child: Image.network(
