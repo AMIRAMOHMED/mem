@@ -386,7 +386,7 @@ class _ApiService implements ApiService {
     final _headers = <String, dynamic>{};
     final _data = {
       'email': email,
-      'token': code,
+      'code': code,
     };
     final _result = await _dio.fetch(_setStreamType<dynamic>(Options(
       method: 'POST',
@@ -395,7 +395,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          'auth/resetpassword/otp',
+          'auth/resetpassword/validate',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -419,7 +419,7 @@ class _ApiService implements ApiService {
     final _headers = <String, dynamic>{};
     final _data = {
       'email': email,
-      'token': code,
+      'code': code,
       'password': password,
     };
     final _result = await _dio.fetch(_setStreamType<dynamic>(Options(

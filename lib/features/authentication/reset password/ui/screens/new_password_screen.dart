@@ -25,12 +25,11 @@ TextEditingController passwordController = TextEditingController();
 TextEditingController confirmPasswordController = TextEditingController();
 final ApiService _apiService = GetIt.I<ApiService>();
 
-  @override
-  void dispose() {
-    passwordController.dispose();
-    confirmPasswordController.dispose();
-  }
-
+@override
+void dispose() {
+  passwordController.dispose();
+  confirmPasswordController.dispose();
+}
 
 class _NewPasswordScreenState extends State<NewPasswordScreen> {
   final formKey = GlobalKey<FormState>();
@@ -118,11 +117,25 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                     buttomText: " تغيير",
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
-                        _apiService.confirmResetPassword(
-                            widget.email, widget.code, passwordController.text);
-                            
-
-                        context.pushNamedAndRemoveUntil(splashScreen);
+                        _apiService
+                            .confirmResetPassword(widget.email, widget.code,
+                                passwordController.text)
+                            .then((value) {
+                          print(value);
+                          context.pushReplacementNamed(splashScreen);
+                        }).catchError((e) {
+                          print(e);
+                          showDialog(
+                            context: context,
+                            builder: (context) => AlertDialog(
+                              title: Text(
+                                "خطأ في البيانات المدخلة",
+                                style: AppStyles.font20Black(context),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          );
+                        });
                       }
                     },
                     textStyle: AppStyles.font24White(context),
@@ -138,5 +151,4 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
       ),
     );
   }
-
 }

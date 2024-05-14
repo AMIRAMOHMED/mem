@@ -61,14 +61,28 @@ class _EmailVerficationScreenState extends State<EmailVerficationScreen> {
                   buttomText: "تاكيد",
                   onPressed: () {
                     if (codeController.text.isNotEmpty) {
-                      _apiService.sendCode(widget.email, codeController.text);
-                      context.pushReplacementNamed(
-                        newPasswordScreen,
-                        arguments: {
-                          'email': widget.email,
-                          'code': codeController.text,
-                        },
-                      );
+                      _apiService
+                          .sendCode(widget.email, codeController.text)
+                          .then((value) {
+                        context.pushReplacementNamed(
+                          newPasswordScreen,
+                          arguments: {
+                            'email': widget.email,
+                            'code': codeController.text,
+                          },
+                        );
+                      }).catchError((e) {
+                        showDialog(
+                          context: context,
+                          builder: (context) => AlertDialog(
+                            title: Text(
+                              'رمز التحقيق غير صحيح',
+                              style: AppStyles.font20Black(context),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        );
+                      });
                     } else {
                       showDialog(
                         context: context,

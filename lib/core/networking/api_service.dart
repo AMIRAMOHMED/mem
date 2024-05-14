@@ -85,13 +85,13 @@ abstract class ApiService {
   @POST(ApiConstants.sendCodeConfirm)
   Future<dynamic> sendCode(
     @Field('email') String email,
-    @Field('token') String code,
+    @Field('code') String code,
   );
 
   @POST(ApiConstants.confirmResetPassword)
   Future<dynamic> confirmResetPassword(
     @Field('email') String email,
-    @Field('token') String code,
+    @Field('code') String code,
     @Field('password') String password,
   );
 }
