@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:mem/core/extension/context_extension.dart';
 import 'package:mem/core/extension/num_extension.dart';
+import 'package:mem/core/networking/api_service.dart';
 import 'package:mem/core/resources/validation.dart';
 import 'package:mem/core/routing/routes_models.dart';
 import 'package:mem/core/themes/app_pallete.dart';
@@ -8,11 +10,27 @@ import 'package:mem/core/themes/app_style.dart';
 import 'package:mem/features/authentication/widgets/buttom_auth.dart';
 
 class NewPasswordScreen extends StatefulWidget {
-  const NewPasswordScreen({super.key});
+  final String email, code;
+  const NewPasswordScreen({
+    super.key,
+    required this.email,
+    required this.code,
+  });
 
   @override
   State<NewPasswordScreen> createState() => _NewPasswordScreenState();
 }
+
+TextEditingController passwordController = TextEditingController();
+TextEditingController confirmPasswordController = TextEditingController();
+final ApiService _apiService = GetIt.I<ApiService>();
+
+  @override
+  void dispose() {
+    passwordController.dispose();
+    confirmPasswordController.dispose();
+  }
+
 
 class _NewPasswordScreenState extends State<NewPasswordScreen> {
   final formKey = GlobalKey<FormState>();
@@ -44,6 +62,7 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                     style: const TextStyle(color: AppPallete.black),
                     textAlign: TextAlign.right,
                     obscureText: isShowPassword,
+                    controller: passwordController,
                     decoration: InputDecoration(
                       hintStyle: AppStyles.font16LightGray(context),
                       hintText: 'كلمة السر ',
@@ -61,7 +80,6 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                         ),
                       ),
                     ),
-                    // controller: passwordController,
                     validator: MyValidators.passwordValidator,
                   ),
                   SizedBox(
@@ -71,6 +89,7 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                     style: const TextStyle(color: AppPallete.black),
                     textAlign: TextAlign.right,
                     obscureText: isShowPassword,
+                    controller: confirmPasswordController,
                     decoration: InputDecoration(
                       hintStyle: AppStyles.font16LightGray(context),
                       hintText: 'تأكيد كلمة السر ',
@@ -87,10 +106,9 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                             color: AppPallete.lightGray,
                           )),
                     ),
-                    // controller: confirmPasswordController,
                     validator: (value) {
-                      // return MyValidators.repeatPasswordValidator(
-                      //     value: value, password: passwordController.text);
+                      return MyValidators.repeatPasswordValidator(
+                          value: value, password: passwordController.text);
                     },
                   ),
                   SizedBox(
@@ -100,7 +118,11 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                     buttomText: " تغيير",
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
-                        context.pushNamedAndRemoveUntil(loginScreen);
+                        _apiService.confirmResetPassword(
+                            widget.email, widget.code, passwordController.text);
+                            
+
+                        context.pushNamedAndRemoveUntil(splashScreen);
                       }
                     },
                     textStyle: AppStyles.font24White(context),
@@ -116,4 +138,5 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
       ),
     );
   }
+
 }

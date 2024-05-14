@@ -1,14 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:mem/core/extension/context_extension.dart';
 import 'package:mem/core/extension/num_extension.dart';
+import 'package:mem/core/networking/api_service.dart';
 import 'package:mem/core/routing/routes_models.dart';
 import 'package:mem/core/themes/app_pallete.dart';
 import 'package:mem/core/themes/app_style.dart';
 import 'package:mem/features/authentication/widgets/buttom_auth.dart';
 
-class EmailVerficationScreen extends StatelessWidget {
-  const EmailVerficationScreen({super.key});
+class EmailVerficationScreen extends StatefulWidget {
+  final String email;
+  const EmailVerficationScreen({super.key, required this.email});
 
+  @override
+  State<EmailVerficationScreen> createState() => _EmailVerficationScreenState();
+}
+
+TextEditingController codeController = TextEditingController();
+final ApiService _apiService = GetIt.I<ApiService>();
+@override
+void dispose() {
+  codeController.dispose();
+}
+
+class _EmailVerficationScreenState extends State<EmailVerficationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,22 +46,41 @@ class EmailVerficationScreen extends StatelessWidget {
                   height: 50.h,
                 ),
                 TextFormField(
+                  controller: codeController,
                   style: const TextStyle(color: AppPallete.black),
                   textAlign: TextAlign.right,
                   decoration: InputDecoration(
                     hintText: "ادخل رمز التحقيق",
                     hintStyle: AppStyles.font16LightGray(context),
                   ),
-                  // controller: emailController,
                 ),
                 SizedBox(
                   height: 40.h,
                 ),
                 AuthtButtom(
-                  buttomText:"تاكيد",
+                  buttomText: "تاكيد",
                   onPressed: () {
-                    context.pushReplacementNamed(newPasswordScreen);
-                    //  made if statment if not empty
+                    if (codeController.text.isNotEmpty) {
+                      _apiService.sendCode(widget.email, codeController.text);
+                      context.pushReplacementNamed(
+                        newPasswordScreen,
+                        arguments: {
+                          'email': widget.email,
+                          'code': codeController.text,
+                        },
+                      );
+                    } else {
+                      showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                          title: Text(
+                            'برجاء ادخال رمز التحقيق',
+                            style: AppStyles.font20Black(context),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      );
+                    }
                   },
                   textStyle: AppStyles.font24White(context),
                 ),

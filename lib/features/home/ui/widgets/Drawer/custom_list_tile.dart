@@ -20,11 +20,10 @@ class CustomListTile extends StatelessWidget {
         size: 30,
       ),
       splashColor: AppPallete.pinkColor,
-      contentPadding: EdgeInsets.symmetric(horizontal: 80.w),
+      contentPadding: EdgeInsets.symmetric(horizontal: 10.w),
       title: FittedBox(
         fit: BoxFit.scaleDown,
         child: Text(
-          maxLines: 1,
           text,
           style: AppStyles.font20Black(context),
         ),

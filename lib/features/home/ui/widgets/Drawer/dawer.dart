@@ -18,7 +18,7 @@ class BuildDrawer extends StatelessWidget {
             height: 50.h,
           ),
           const HeadDrawer(),
-           SizedBox(
+          SizedBox(
             height: 50.h,
           ),
           const DrawerBuilder(),

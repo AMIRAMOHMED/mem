@@ -26,7 +26,7 @@ class DrawerBuilder extends StatelessWidget {
           icon: Icons.notification_important_outlined,
           text: "الإشعارات",
           onTap: () {
-            context.pushReplacementNamed(notificationScreen);
+            context.pushName(notificationScreen);
           },
         ),
     (context) => CustomListTile(

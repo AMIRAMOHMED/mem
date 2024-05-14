@@ -11,6 +11,9 @@ class ApiConstants {
   static const String exercisesEndpoint = "exercises/all";
   static const String getAllMessage = "groups/";
   static const String getUserDetails = "user/info";
+  static const String resetPassword = "auth/resetpassword";
+  static const String sendCodeConfirm = "auth/resetpassword/otp";
+  static const String confirmResetPassword = "auth/resetpassword/confirm";
 }
 
 class ApiErrors {

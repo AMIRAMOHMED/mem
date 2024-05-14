@@ -83,9 +83,12 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
             create: (context) => getIt<VaildCubit>(),
-            child: const NewPasswordScreen(),
-          ),
-        );
+            child: NewPasswordScreen(
+        email: (args! as Map<String, dynamic>)['email'] as String,
+        code: (args as Map<String, dynamic>)['code'] as String,
+      ),
+    ),
+  );
 
       case resetPasswordScreen:
         return MaterialPageRoute(
@@ -99,7 +102,7 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
             create: (context) => getIt<VaildCubit>(),
-            child: const EmailVerficationScreen(),
+            child:  EmailVerficationScreen(email: args as String,),
           ),
         );
 

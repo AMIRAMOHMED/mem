@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:mem/core/extension/context_extension.dart';
 import 'package:mem/core/extension/num_extension.dart';
+import 'package:mem/core/networking/api_service.dart';
 import 'package:mem/core/resources/validation.dart';
 import 'package:mem/core/routing/routes_models.dart';
 import 'package:mem/core/themes/app_pallete.dart';
@@ -14,8 +16,17 @@ class ResetPasswordScreen extends StatefulWidget {
   State<ResetPasswordScreen> createState() => _ResetPasswordScreenState();
 }
 
+final ApiService _apiService = GetIt.I<ApiService>();
+  TextEditingController emailController = TextEditingController();
+
+  @override
+  void dispose() {
+    emailController.dispose();
+  }
+
 class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
   final formKey = GlobalKey<FormState>();
+  String emailFromUser = "";
 
   @override
   Widget build(BuildContext context) {
@@ -40,13 +51,13 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                     height: 50.h,
                   ),
                   TextFormField(
+                    controller: emailController,
                     style: const TextStyle(color: AppPallete.black),
                     textAlign: TextAlign.right,
                     decoration: InputDecoration(
                       hintText: "البريد الالكتروني المستخدم",
                       hintStyle: AppStyles.font16LightGray(context),
                     ),
-                    // controller: emailController,
                     validator: MyValidators.emailValidator,
                   ),
                   SizedBox(
@@ -56,7 +67,11 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                     buttomText: "ارسل رمز التحقيق",
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
-                        context.pushReplacementNamed(emailVerficationScreen);
+                        _apiService.resetPassword(emailController.text);
+                        setState(() {
+                          emailFromUser = emailController.text;
+                        });
+                        context.pushReplacementNamed(emailVerficationScreen,arguments: emailFromUser);  
                       }
                     },
                     textStyle: AppStyles.font24White(context),
@@ -75,4 +90,5 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
       ),
     );
   }
+
 }

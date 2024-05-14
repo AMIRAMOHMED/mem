@@ -73,9 +73,25 @@ abstract class ApiService {
     @Path("id") String id,
   );
 
-@GET(ApiConstants.getUserDetails)
+  @GET(ApiConstants.getUserDetails)
   Future<UserModel> getUserIno(
     @Header('Authorization') String token,
   );
 
+  @POST(ApiConstants.resetPassword)
+  Future<dynamic> resetPassword(
+    @Field('email') String email,
+  );
+  @POST(ApiConstants.sendCodeConfirm)
+  Future<dynamic> sendCode(
+    @Field('email') String email,
+    @Field('token') String code,
+  );
+
+  @POST(ApiConstants.confirmResetPassword)
+  Future<dynamic> confirmResetPassword(
+    @Field('email') String email,
+    @Field('token') String code,
+    @Field('password') String password,
+  );
 }
