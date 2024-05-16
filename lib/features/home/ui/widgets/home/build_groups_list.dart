@@ -21,7 +21,7 @@ class BuildGroupsList extends StatelessWidget {
       child: BlocBuilder<GroupChatCubit, GroupChatState>(
         builder: (context, state) {
           return SizedBox(
-            height:120.h,
+            height: 120.h,
             child: _buildGroupsList(context, state),
           );
         },
@@ -41,14 +41,12 @@ class BuildGroupsList extends StatelessWidget {
           success: (groupList) {
             if (groupList.isEmpty) {
               return const EmptyContainerState(
-                text: 'ليس لديك جروبات',
+                text: 'ليس لديك مجموعات',
               );
             } else {
               return ListView.builder(
                 reverse: true,
-                scrollDirection:
-                
-                     Axis.horizontal,
+                scrollDirection: Axis.horizontal,
                 physics: const BouncingScrollPhysics(),
                 itemCount: groupList.length,
                 itemBuilder: (context, index) => GestureDetector(

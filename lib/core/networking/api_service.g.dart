@@ -13,7 +13,7 @@ class _ApiService implements ApiService {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://mem.hossamohsen.me/';
+    baseUrl ??= 'https://mem-backend-a9s1.onrender.com';
   }
 
   final Dio _dio;

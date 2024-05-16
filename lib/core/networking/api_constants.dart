@@ -1,5 +1,5 @@
 class ApiConstants {
-  static const String apiBaseURL = 'https://mem.hossamohsen.me/';
+  static const String apiBaseURL = 'https://mem-backend-a9s1.onrender.com/';
   static const String registerEndpoint = 'auth/signup/password';
   static const String loginEndpoint = 'auth/signin/password';
   static const String meetingEndpoint = "meetings/all";
