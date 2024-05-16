@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:device_info_plus/device_info_plus.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:mem/core/service/shared_pref/pref_keys.dart';
 import 'package:mem/core/service/shared_pref/shared_pref.dart';
@@ -27,10 +27,10 @@ class PutImageCubit extends Cubit<PutImageState> {
       if (androidSdkInt < 33) {
         newPermReq = await Permission.storage.request();
       } else {
-        newPermReq = await Permission.videos.request();
+        newPermReq = await Permission.photos.request();
       }
     } else {
-      newPermReq = await Permission.videos.request();
+      newPermReq = await Permission.photos.request();
     }
     return newPermReq;
   }
@@ -57,29 +57,25 @@ class PutImageCubit extends Cubit<PutImageState> {
           },
         );
       } else {
-        // User canceled image picking
         emit(const PutImageState.initial());
       }
     } else if (status.isPermanentlyDenied) {
-      // ignore: use_build_context_synchronously
       _showAlertPermissionsDialog(context);
     }
   } 
-
-  Future<void> _showAlertPermissionsDialog(BuildContext context) {
-    return showCupertinoDialog(
+Future<void> _showAlertPermissionsDialog(BuildContext context) {
+    return showDialog(
       context: context,
       builder: (context) {
-        return CupertinoAlertDialog(
+        return AlertDialog(
           title: const Text('Permissions Denied'),
           content: const Text('Allow access to gallery and photos'),
-          actions: <CupertinoDialogAction>[
-            CupertinoDialogAction(
+          actions: [
+            TextButton(
               onPressed: () => Navigator.of(context).pop(),
               child: const Text('Cancel'),
             ),
-            const CupertinoDialogAction(
-              isDefaultAction: true,
+            const TextButton(
               onPressed: openAppSettings,
               child: Text('Settings'),
             ),
