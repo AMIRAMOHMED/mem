@@ -10,6 +10,8 @@ import 'package:mem/core/routing/app_routing.dart';
 import 'package:mem/core/service/shared_pref/shared_pref.dart';
 import 'package:mem/core/themes/app_theme.dart';
 import 'package:mem/firebase_options.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:flutter/foundation.dart';
 
 final GlobalKey<NavigatorState> navigator = GlobalKey<NavigatorState>();
 
@@ -24,7 +26,6 @@ class Mem extends StatelessWidget {
       theme: AppTheme.darkTthemeMode,
       navigatorKey: navigator,
     );
-   
   }
 }
 
@@ -38,6 +39,15 @@ Future<void> main() async {
   await SharedPref().instantiatePreferences();
   await setupGetIt();
   Bloc.observer = AppBlocObserver();
+
+  FlutterError.onError = (errorDetails) {
+    FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
+  };
+  // Pass all uncaught asynchronous errors that aren't handled by the Flutter framework to Crashlytics
+  PlatformDispatcher.instance.onError = (error, stack) {
+    FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+    return true;
+  };
 
   runApp(const Mem());
 }
