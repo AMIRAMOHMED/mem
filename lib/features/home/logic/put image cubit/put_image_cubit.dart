@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:mem/core/service/shared_pref/pref_keys.dart';
@@ -13,10 +16,28 @@ class PutImageCubit extends Cubit<PutImageState> {
   PutImageCubit(this._userPutPictureRepo) : super(const PutImageState.initial());
   
   XFile? pickImage;
+   
+  Future<PermissionStatus> requestPermission() async {
+    PermissionStatus newPermReq;
+
+    final deviceInfo = DeviceInfoPlugin();
+    if (Platform.isAndroid) {
+      final androidInfo = await deviceInfo.androidInfo;
+      final androidSdkInt = androidInfo.version.sdkInt;
+      if (androidSdkInt < 33) {
+        newPermReq = await Permission.storage.request();
+      } else {
+        newPermReq = await Permission.videos.request();
+      }
+    } else {
+      newPermReq = await Permission.videos.request();
+    }
+    return newPermReq;
+  }
 
   Future<void> pickImageAction(BuildContext context) async {
     final token = SharedPref().getString(PrefKeys.accessToken);
-    final status = await Permission.videos.request();
+    final status = await requestPermission();
     if (status.isGranted) {
       final image = await ImagePicker().pickImage(source: ImageSource.gallery);
       if (image != null) {
