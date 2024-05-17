@@ -6,8 +6,9 @@ class Assets {
   static const memLogo = 'assets/splash/mem_logo.lottie-1.json';
   static const relaxtion = "assets/home/relaxtion.png";
   static const threeDModel = "assets/home/3DModel.png";
-   static const profileLogo ="assets/home/profile_logo.png";
+  static const profileLogo = "assets/home/profile_logo.png";
   static const sendIcon = "assets/chat/Sent_icon.png";
-static const memLogPicture =  "assets/home/memlogpic.png";
-static const splashVector="assets/splash/Vector 1.jpg";
+  static const memLogPicture = "assets/home/memlogpic.png";
+  static const splashVector = "assets/splash/Vector 1.jpg";
+  static const speakingLogo = "assets/home/speaking.png";
 }

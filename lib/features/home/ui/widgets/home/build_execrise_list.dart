@@ -19,16 +19,16 @@ class BuildExecriseItemHome extends StatelessWidget {
 
   static final List<ExerciseItem> items = [
     const ExerciseItem(
-      text: 'تمارين التنفس',
+      text: ' تمارين التنفس و الاسترخاء',
       color: AppPallete.lightBlueColor,
       exerciseType: ExerciseType.breathing,
-      image: Assets.breathing,
+      image:  Assets.relaxtion,
     ),
     const ExerciseItem(
-      text: 'تمارين الاسترخاء',
+      text: 'تمارين النطق',
       color: AppPallete.lightPink,
       exerciseType: ExerciseType.yoga,
-      image: Assets.relaxtion,
+      image: Assets.speakingLogo,
     ),
     const ExerciseItem(
         text: 'محاكي ' + "3D",

@@ -97,6 +97,7 @@ flutter:
     - assets/videoTest.mp4
     - assets/chat/Sent_icon.png
     - assets/home/memlogpic.png
+    - assets/home/speaking.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see
