@@ -4,6 +4,7 @@ import 'package:mem/core/themes/app_pallete.dart';
 import 'package:mem/core/widgets/head_container.dart';
 import '../../../../core/resources/assets.dart';
 import '../../../../core/themes/app_style.dart';
+
 class InformationGroupScreen extends StatelessWidget {
   const InformationGroupScreen({super.key});
 
@@ -19,9 +20,7 @@ class InformationGroupScreen extends StatelessWidget {
             automaticallyImplyLeading: false,
             title: const HeadContainer(
               text: 'تفاصيل المجموعة',
-            
               color: AppPallete.mintGreen,
-              
             ),
           ),
           Container(
@@ -61,7 +60,7 @@ class InformationGroupScreen extends StatelessWidget {
                         width: 10,
                       ),
                       Text(
-                        "الاسم",
+                        "الإسم",
                         style: AppStyles.font20Black(context),
                       ),
                     ],
@@ -80,7 +79,7 @@ class InformationGroupScreen extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Text(
-                    "الخروج",
+                    "خروج",
                     style: AppStyles.font20Black(context),
                   ),
                 ),

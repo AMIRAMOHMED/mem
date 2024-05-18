@@ -43,7 +43,7 @@ class BuildMeetingList extends StatelessWidget {
           success: (meetingList) {
             if (meetingList.isEmpty) {
               return const EmptyContainerState(
-                text: 'ليس لديك مواعيد',
+                text: 'ليس لديك إجتماعات',
               );
             } else {
               return ListView.builder(

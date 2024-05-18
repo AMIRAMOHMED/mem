@@ -29,7 +29,7 @@ class PickImageWidget extends StatelessWidget {
                     ),
                     child: const Center(
                       child: Text(
-                        "اختار صوره",
+                        "اختر صورة",
                         style: TextStyle(
                             fontSize: 16, color: AppPallete.borderColor),
                       ),

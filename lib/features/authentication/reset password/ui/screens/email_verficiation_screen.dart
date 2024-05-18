@@ -50,7 +50,7 @@ class _EmailVerficationScreenState extends State<EmailVerficationScreen> {
                   style: const TextStyle(color: AppPallete.black),
                   textAlign: TextAlign.right,
                   decoration: InputDecoration(
-                    hintText: "ادخل رمز التحقيق",
+                    hintText: "ادخل رمز التحقق",
                     hintStyle: AppStyles.font16LightGray(context),
                   ),
                 ),
@@ -58,7 +58,7 @@ class _EmailVerficationScreenState extends State<EmailVerficationScreen> {
                   height: 40.h,
                 ),
                 AuthtButtom(
-                  buttomText: "تاكيد",
+                  buttomText: "تأكيد",
                   onPressed: () {
                     if (codeController.text.isNotEmpty) {
                       _apiService
@@ -76,7 +76,7 @@ class _EmailVerficationScreenState extends State<EmailVerficationScreen> {
                           context: context,
                           builder: (context) => AlertDialog(
                             title: Text(
-                              'رمز التحقيق غير صحيح',
+                              'رمز التحقق غير صحيح',
                               style: AppStyles.font20Black(context),
                               textAlign: TextAlign.center,
                             ),
@@ -88,7 +88,7 @@ class _EmailVerficationScreenState extends State<EmailVerficationScreen> {
                         context: context,
                         builder: (context) => AlertDialog(
                           title: Text(
-                            'برجاء ادخال رمز التحقيق',
+                            'رجاءاً أدخل رمز التحقق',
                             style: AppStyles.font20Black(context),
                             textAlign: TextAlign.center,
                           ),

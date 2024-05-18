@@ -8,7 +8,7 @@ import 'package:mem/features/meeting/presentation/widgets/join_button.dart';
 
 class CollaborationScreen extends StatelessWidget {
   const CollaborationScreen({super.key, required this.meetingResponsBody});
-final MeetingResponsBody meetingResponsBody;
+  final MeetingResponsBody meetingResponsBody;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -22,7 +22,7 @@ final MeetingResponsBody meetingResponsBody;
               AppBar(
                 automaticallyImplyLeading: false,
                 title: const HeadContainer(
-                  text: 'التقويم و الجدولة',
+                  text: ' الإجتماعات ',
                   color: AppPallete.darkPink,
                 ),
               ),
@@ -30,11 +30,14 @@ final MeetingResponsBody meetingResponsBody;
               const SizedBox(
                 height: 15,
               ),
-               FullClanderContainer(meeting: meetingResponsBody,),
+              FullClanderContainer(
+                meeting: meetingResponsBody,
+              ),
               const SizedBox(
                 height: 40,
               ),
-              JoinButton(meeting: meetingResponsBody,
+              JoinButton(
+                meeting: meetingResponsBody,
               ),
             ],
           ),

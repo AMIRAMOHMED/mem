@@ -48,7 +48,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 130.h,
                   ),
                   Text(
-                    "مرحبا بك",
+                    "مرحباً بك",
                     style: AppStyles.font40Black(context),
                   ),
                   SizedBox(
@@ -121,7 +121,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 20.h,
                   ),
                   AuthtButtom(
-                    buttomText: 'تسجيل حساب جديد',
+                    buttomText: 'إنشاء حساب جديد',
                     color: AppPallete.white,
                     onPressed: () {
                       context.pushName(registerScreen);

@@ -26,7 +26,7 @@ class BuildNotificationList extends StatelessWidget {
               success: (notificationList) {
                 if (notificationList.isEmpty) {
                   return const EmptyContainerState(
-                    text: 'ليس لديك اشعارات',
+                    text: 'ليس لديك إشعارات',
                   );
                 } else {
                   return ListView.builder(

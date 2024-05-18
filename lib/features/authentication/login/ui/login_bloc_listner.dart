@@ -27,16 +27,15 @@ class LoginBlocListener extends StatelessWidget {
             );
           },
           success: (loginResponse) async {
-            Navigator.of(context).pop(); 
-            Navigator.of(context)
-                .pushReplacementNamed(homeScreen); 
+            Navigator.of(context).pop();
+            Navigator.of(context).pushReplacementNamed(homeScreen);
           },
           error: (error) {
             showDialog(
               context: context,
               builder: (context) => AlertDialog(
                 title: Text(
-                  'برجاء ادخال جميع البيانات بشكل صحيح',
+                  'رجاءاً أدخل جميع البيانات بشكل صحيح',
                   style: AppStyles.font20Black(context),
                   textAlign: TextAlign.center,
                 ),

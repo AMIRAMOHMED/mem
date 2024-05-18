@@ -22,7 +22,7 @@ class FullClockItem extends StatelessWidget {
               color: AppPallete.black,
             ),
             Text(
-              " فى تمام الساعه ",
+              "فى تمام الساعة :  ",
               style: AppStyles.font20Black(context),
             ),
           ],

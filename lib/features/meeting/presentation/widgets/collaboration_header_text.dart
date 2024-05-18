@@ -14,9 +14,8 @@ class CollaborationHeaderText extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          
           Text(
-            ":لديك موعد add name جديد \nاحرص على الانضمام في الموعد المحدد",
+            ":لديك موعد جديد \nاحرص على الإنضمام في الموعد المحدد",
             style: AppStyles.font20Black(context),
             textAlign: TextAlign.right,
           ),

@@ -17,12 +17,12 @@ class ResetPasswordScreen extends StatefulWidget {
 }
 
 final ApiService _apiService = GetIt.I<ApiService>();
-  TextEditingController emailController = TextEditingController();
+TextEditingController emailController = TextEditingController();
 
-  @override
-  void dispose() {
-    emailController.dispose();
-  }
+@override
+void dispose() {
+  emailController.dispose();
+}
 
 class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
   final formKey = GlobalKey<FormState>();
@@ -64,14 +64,15 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                     height: 40.h,
                   ),
                   AuthtButtom(
-                    buttomText: "ارسل رمز التحقيق",
+                    buttomText: "أرسل رمز التحقق",
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
                         _apiService.resetPassword(emailController.text);
                         setState(() {
                           emailFromUser = emailController.text;
                         });
-                        context.pushReplacementNamed(emailVerficationScreen,arguments: emailFromUser);  
+                        context.pushReplacementNamed(emailVerficationScreen,
+                            arguments: emailFromUser);
                       }
                     },
                     textStyle: AppStyles.font24White(context),
@@ -90,5 +91,4 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
       ),
     );
   }
-
 }

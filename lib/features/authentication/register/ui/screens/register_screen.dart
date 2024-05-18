@@ -87,7 +87,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         style: const TextStyle(color: AppPallete.black),
                         textAlign: TextAlign.right,
                         decoration: InputDecoration(
-                          hintText: "الاسم الاول",
+                          hintText: "الإسم الاول",
                           hintStyle: AppStyles.font16LightGray(context),
                         ),
                         controller: firstNameController,
